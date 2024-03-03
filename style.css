@@ -5,14 +5,16 @@
 * {
     margin: 0;
     padding: 0;
-
+    box-sizing: border-box;
 }
 
 .sidebar {
+    position: relative;
     background-color: rgb(91, 79, 79);
-    width: 430px;
+    /* width: 430px; */
     font-family: 'Libre Baskerville', serif;
-    height: 100vh;
+    height:100vh;
+    transition: transform 0.3s ease-in;
 }
 
 .sidebar nav {
@@ -31,8 +33,10 @@
 }
 
 .main {
-    /* background-color: yellow; */
-    width: 90vw;
+    display: flex;
+    justify-self: center;
+    width: 100vw;
+    
 }
 
 .container {
@@ -40,16 +44,16 @@
 }
 
 .infoContainer {
-  
     border-radius: 10%;
-    height: 58vh;
+    height: 70vh;
     width: 80vw;
-    margin: 144px auto;
+    margin: 100px auto ;
     display: flex;
     justify-content: space-around;
 }
- 
+
 .devInfo {
+    font-size: 16px;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -58,11 +62,11 @@
 }
 
 .hello {
-    font-size: 65px;
+    font-size: 3em;
 }
 
 .name {
-    font-size: 50px;
+    font-size: 3em;
     font-family: 'Playfair Display', serif;
     color: rgb(124, 117, 117);
     font-weight: bold;
@@ -70,35 +74,35 @@
 }
 
 .about {
-    font-size: 40px;
+    font-size: 2.5em;
 }
 
 .moreabout {
     font-family: 'Playfair Display', serif;
     margin-top: 23px;
-    font-size: 15.5px;
+    font-size: 1.2em;
 }
 
 .buttons {
-    margin-top: 34px;
+    margin-top: 2.2em;
 }
 
 .btn {
-    
     padding: 9px 14px;
     border-radius: 22px;
     color: white;
     background-color: rgb(46, 6, 75);
     font-weight: bold;
-    font-size: 15px;
-    margin: 0 3px;
+    font-size: 1.3em;
+    margin: 3px 5px;
     cursor: pointer;
 }
-.btn:hover{
+.btn:hover {
     background-color: white;
     color: rgb(46, 6, 75);
 }
-.buttons button :hover {
+
+.buttons button:hover {
     background-color: white;
     color: rgb(46, 6, 75);
 }
@@ -109,16 +113,18 @@
     border-radius: 15%;
 }
 
-.contactform{
-    padding:0 34px;
+.contactform {
+    margin-left: 70px;
+    /* padding: 0 34px; */
     padding-top: 144px;
     font-family: 'Libre Baskerville', serif;
 }
 
 .contactform h1 {
     font-family: 'Playfair Display', serif;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
 }
+
  .contactform form div {
     padding: 10px 0;
     display: flex;
@@ -126,11 +132,13 @@
 
 }
 .contactform form div {
-    width:25vw;
+    /* width: 25vw; */
     border-radius: 10px;
     margin: 6px 0;
     padding: 8px;
-
+}
+.contactform form{
+    margin: 0 40px;
 }
 
 #emailHelp {
@@ -138,91 +146,128 @@
     color: rgb(223, 7, 7);
     margin: 0 9px;
 }
-#form-check{
-    flex-direction:row;
+
+#form-check {
+    flex-direction: row;
     padding: 10px;
     font-size: 10px;
 }
 
-#form-check input{
-    width:20px;
+#form-check input {
+    width: 20px;
 }
-.form-label{
+
+.form-label {
     padding: 5px 0;
-    color:rgb(78, 75, 75);
+    color: rgb(78, 75, 75);
 }
+
 .name {
     animation: fadeIn 2s ease-in-out;
-  }
-  
-  @keyframes fadeIn {
+}
+
+@keyframes fadeIn {
     from {
-      opacity: 0;
+        opacity: 0;
     }
     to {
-      opacity: 1;
+        opacity: 1;
     }
-  }
-  
-.blogitem{
-   margin:20px ;
-   font-family :'Libre Baskerville', serif;
 }
-.blogContainer h1{
+
+.blogitem {
+    margin: 20px;
+    font-family: 'Libre Baskerville', serif;
+}
+.blogContainer{
+    margin-top: 30px;
+    margin-left:80px;
+}
+.blogContainer h1 {
+    display: flex;
+    justify-content: center;
     font-family: 'Playfair Display', serif;
-    margin:23px;
+    /* margin-left: 500px ;
+    margin-right: 500px; */
 }
-.blogitem p{
+
+.blogitem p {
+    display: flex;
+    justify-content: center;
     padding: 10px 0;
 }
-.blogContainer h2{
+
+.blogContainer h2 {
     text-align: center;
-   
 }
-.blogContainer .btn{
+
+.blogContainer .btn {
+    /* display: flex;
+    justify-content: center; */
     font-size: 12px;
-   padding: 7px;
-   margin-left: 44%;
-   margin-bottom: 20px;
-   border-radius: 10%;
-  background-color:grey;
+    padding: 7px;
+    margin-left: 46%; 
+    margin-bottom: 20px; 
+    border-radius: 10%;
+    background-color: grey;
 }
-.devIntro{
+
+.devIntro {
     font-family: 'Playfair Display', serif;
 }
+
 .introContainer {
-    /* background-color: rgb(8, 37, 227); */
-     height: 58vh;
-     width: 80vw;
-     margin: 144px auto;
-     display: flex;
-     justify-content: space-around;
- }
-.devIntro p{
+    height: 58vh;
+    width: 80vw;
+    margin: 144px auto;
+    display: flex;
+    justify-content: space-around;
+}
+
+.devIntro p {
     padding: 5px 10px;
     animation: fadeIn 1s ease-in-out;
 }
-.devIntro h1,h2{
+
+.devIntro h1,h2 {
     font-size: 35px;
-    padding:10px;
+    padding: 10px;
     color: grey;
 }
-@media (max-width: 1535px) {
-    *{
-    /*background-color: red; */
-    }
 
-   .sidebar{
-    transform: translate(-443px,0px);
-    position: absolute;
-   }
+.sidebarGo{
+    transform:translate(-443px, 0px);
+    position:absolute;
 }
+
+
 
 .hamburger {
-    display: none;
-    flex-direction: column;
+    position: absolute;
     cursor: pointer;
+    top:10px;
+    left:10px;
 }
+
+@media (max-width: 1535px) {
+
+.devInfo{
+    font-size: 10px;
+}
+.devInfo {
+    margin-left: 0;
+    text-align: center;
+}
+.infoContainer,
+.introContainer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.intro ,.blogContainer, .contactform{
+    margin: 50px 8px;
+}
+
 
 .line {
     width: 35px;
@@ -232,33 +277,4 @@
 }
 
 
-@media (max-width: 768px) {
-    .sidebar {
-        width: 100%;
-        transform: translateX(-100%);
-        transition: transform 0.3s ease-in-out;
-        position: fixed;
-        z-index: 1;
-        top: 0;
-        left: 0;
-        background-color: #333; 
-        overflow-x: hidden;
-        padding-top: 60px; 
-    }
-
-    .sidebar.show {
-        transform: translateX(0);
-    }
-
-    .hamburger {
-        display: flex;
-        position: fixed;
-        top: 20px;
-        left: 20px;
-        z-index: 2;
-    }
-
-    .main {
-        margin-left: 0;
-    }
 }
