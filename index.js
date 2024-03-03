@@ -1,8 +1,20 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const hamburger = document.querySelector(".hamburger");
-    const navMenu = document.querySelector(".sidebar nav ul");
+console.log("Script running....")
 
-    hamburger.addEventListener("click", () => {
-        navMenu.classList.toggle("show");
-    });
-});
+document.querySelector('.cross').style.display='none';
+
+  document.querySelector('.hamburger').addEventListener("click",()=>{
+       document.querySelector('.sidebar').classList.toggle('sidebarGo');
+      
+
+       if(document.querySelector('.sidebar').classList.contains('sidebarGo')){
+          document.querySelector('.ham').style.display='inline'
+     document.querySelector('.cross').style.display='none'
+       }
+     else{
+       document.querySelector('.ham').style.display='none'
+       setTimeout(()=>{
+            document.querySelector('.cross').style.display='inline'
+         },250)
+       }
+
+})
