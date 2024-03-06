@@ -9,12 +9,15 @@
 }
 
 .sidebar {
-    position: relative;
+    position: fixed; 
+    top: 0;
+    left: 0;
+    bottom: 0; 
     background-color: rgb(91, 79, 79);
-    /* width: 430px; */
     font-family: 'Libre Baskerville', serif;
-    height:100vh;
-    transition: transform 0.3s ease-in;
+    width: 260px;
+    padding: 20px;
+    overflow-y: auto; 
 }
 
 .sidebar nav {
@@ -217,11 +220,12 @@
 }
 
 .introContainer {
-    height: 58vh;
-    width: 80vw;
-    margin: 144px auto;
+    width: 100%;
+    max-width: 800px; 
+    margin: 40px auto;
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    align-items: center; 
 }
 
 .devIntro p {
