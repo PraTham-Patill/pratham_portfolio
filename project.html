@@ -7,73 +7,119 @@
   <title>Pratham Patil - Projects</title>
   <link rel="stylesheet" href="style.css" />
   <style>
+    body {
+      background: #f7f6f2;
+      font-family: 'Playfair Display', serif;
+      color: #333;
+    }
+
     .projects-container {
       display: flex;
       flex-wrap: wrap;
       gap: 40px;
-      padding: 40px;
+      padding: 60px 40px;
       justify-content: center;
     }
 
     .project-card {
-      background-color: #ffffff;
+      background-color: #fff;
       border-radius: 20px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
       padding: 30px;
-      width: 380px;
+      width: 100%;
+      max-width: 400px;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
     .project-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 14px 35px rgba(0, 0, 0, 0.2);
+      transform: translateY(-10px);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.2);
     }
 
     .project-card h3 {
       font-size: 22px;
       margin-bottom: 15px;
-      color: #0056b3;
+      color: #4c2a7a;
     }
 
     .project-card p {
       font-size: 16px;
-      color: #444;
+      color: #555;
       line-height: 1.6;
-      margin-bottom: 20px;
+      margin-bottom: 25px;
     }
 
-    .project-card a {
+    .project-buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .project-buttons a {
       text-decoration: none;
-      color: #fff;
-      background-color: #007bff;
-      padding: 10px 20px;
-      border-radius: 6px;
-      font-size: 15px;
-      transition: background-color 0.2s ease;
+      padding: 10px 18px;
+      font-size: 14px;
+      border-radius: 25px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      white-space: nowrap;
     }
 
-    .project-card a:hover {
-      background-color: #0056b3;
+    .project-buttons a.github {
+      background-color: #4c2a7a;
+      color: #fff;
+    }
+
+    .project-buttons a.github:hover {
+      background-color: #361c58;
+    }
+
+    .project-buttons a.video {
+      background-color: #6a5acd;
+      color: white;
+    }
+
+    .project-buttons a.video:hover {
+      background-color: #483d8b;
     }
 
     .explore-btn {
       text-align: center;
-      margin-top: 40px;
+      margin: 50px 20px 80px;
     }
 
     .explore-btn a button {
-      background-color: #222;
+      background-color: #2e2e2e;
       color: #fff;
       border: none;
-      padding: 12px 28px;
+      padding: 14px 30px;
       font-size: 16px;
-      border-radius: 8px;
+      border-radius: 30px;
       cursor: pointer;
-      transition: background-color 0.3s ease;
+      transition: all 0.3s ease;
     }
 
     .explore-btn a button:hover {
       background-color: #000;
+    }
+
+    @media (max-width: 768px) {
+      .project-card {
+        padding: 20px;
+      }
+
+      .project-buttons {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .project-buttons a {
+        width: 100%;
+        text-align: center;
+      }
     }
   </style>
 </head>
@@ -105,31 +151,37 @@
           <div class="about">Built with Precision & Passion</div>
 
           <div class="projects-container">
-            <!-- Safenity AI -->
             <div class="project-card">
               <h3>Safenity AI | ML-Driven Safety</h3>
               <p>
-                A machine learning-powered surveillance system leveraging ResNet-50 for crime classification and YOLOv5 for real-time weapon detection. Designed for smart city safety and anomaly detection in public spaces.
+                A machine learning-powered surveillance system leveraging ResNet-50 for crime classification and YOLOv5 for real-time weapon detection.
               </p>
-              <a href="https://github.com/PraTham-Patill/Safenity-AI-Project" target="_blank">View on GitHub</a>
+              <div class="project-buttons">
+                <a class="github" href="https://github.com/PraTham-Patill/Safenity-AI-Project" target="_blank">View on GitHub</a>
+                <a class="video" href="https://drive.google.com/file/d/1XnytryUc18zacoCqMbicX0S0yBOytD7d/view?usp=sharing" target="_blank">Watch Video</a>
+              </div>
             </div>
 
-            <!-- Cruise Up -->
             <div class="project-card">
               <h3>Cruise Up | Car Rental Application</h3>
               <p>
-                A streamlined digital car rental platform that simplifies the booking process for users while offering robust admin control. Built for scalability, ease of use, and efficient management of vehicles and users.
+                A digital car rental platform for easy bookings and efficient admin control. Built for scalability and seamless UX.
               </p>
-              <a href="https://github.com/PraTham-Patill/Project_Car_Rental" target="_blank">View on GitHub</a>
+              <div class="project-buttons">
+                <a class="github" href="https://github.com/PraTham-Patill/Project_Car_Rental" target="_blank">View on GitHub</a>
+                <a class="video" href="https://drive.google.com/file/d/1YHGDweZ-UGsxeyFayN98HYjBd6zpubVk/view?usp=sharing" target="_blank">Watch Video</a>
+              </div>
             </div>
 
-            <!-- MoodTunes -->
             <div class="project-card">
               <h3>MoodTunes | Sync Your Feelings</h3>
               <p>
-                An AI-powered music platform that detects emotions from facial expressions and recommends music accordingly. Users can also create and join shared listening rooms to enjoy music together in real-time.
+                An AI-powered music platform detecting emotions via facial expressions and syncing them with curated music.
               </p>
-              <a href="https://github.com/PraTham-Patill/MoodTunes" target="_blank">View on GitHub</a>
+              <div class="project-buttons">
+                <a class="github" href="https://github.com/PraTham-Patill/MoodTunes" target="_blank">View on GitHub</a>
+                <a class="video" href="https://drive.google.com/file/d/1i3djABr4Pk7cgZD6X_rGO1QLb-fzavMT/view?usp=sharing" target="_blank">Watch Video</a>
+              </div>
             </div>
           </div>
 
