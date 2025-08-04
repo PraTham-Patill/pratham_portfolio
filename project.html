@@ -10,7 +10,6 @@
 
     :root {
       --primary-color: #0a0a0a;
-      --secondary-color: #1a1a1a;
       --accent-color: #00d8ff;
       --accent-secondary: #00a0e9;
       --text-color: #f0f0f0;
@@ -49,16 +48,34 @@
       z-index: -1;
     }
 
-    .container {
-      padding-top: 80px;
+    .infoContainer {
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .hello {
+      font-size: 20px;
+      color: #888;
+    }
+
+    .name {
+      font-size: 42px;
+      font-weight: bold;
+      margin-top: 10px;
+      color: var(--accent-color);
+    }
+
+    .about {
+      font-size: 20px;
+      color: #aaa;
+      margin-bottom: 40px;
     }
 
     .projects-container {
       display: flex;
       flex-wrap: wrap;
-      gap: 40px;
-      padding: 60px 40px;
       justify-content: center;
+      gap: 40px;
     }
 
     .project-card {
@@ -96,6 +113,7 @@
       display: flex;
       gap: 12px;
       flex-wrap: wrap;
+      justify-content: center;
     }
 
     .project-buttons a {
@@ -127,8 +145,11 @@
     }
 
     .explore-btn {
-      text-align: center;
-      margin: 50px 20px 80px;
+      margin-top: 60px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
     }
 
     .explore-btn a button {
@@ -147,62 +168,9 @@
       color: #000;
     }
 
-    .sidebar nav ul {
-      list-style: none;
-      padding: 20px;
-      background-color: #111;
-    }
-
-    .sidebar nav ul li {
-      margin: 10px 0;
-    }
-
-    .sidebar nav ul li a {
-      text-decoration: none;
-      color: #ccc;
-      font-size: 16px;
-      transition: 0.3s;
-    }
-
-    .sidebar nav ul li a:hover {
-      color: var(--accent-color);
-    }
-
-    .hamburger {
-      padding: 20px;
-    }
-
-    .infoContainer {
-      text-align: center;
-      padding: 30px;
-    }
-
-    .hello {
-      font-size: 18px;
-      color: #888;
-    }
-
-    .name {
-      font-size: 36px;
-      color: var(--accent-color);
-      font-weight: bold;
-      margin-top: 5px;
-    }
-
-    .about {
-      font-size: 20px;
-      color: #aaa;
-      margin-bottom: 30px;
-    }
-
     @media (max-width: 768px) {
-      .project-card {
-        padding: 20px;
-      }
-
       .project-buttons {
         flex-direction: column;
-        align-items: stretch;
       }
 
       .project-buttons a {
@@ -212,61 +180,49 @@
     }
   </style>
 </head>
-
 <body>
+
   <div class="bg-animation">
     <div id="particles"></div>
   </div>
 
+  <div class="infoContainer">
+    <div class="hello">Explore</div>
+    <div class="name">My Projects</div>
+    <div class="about">Built with Precision & Passion</div>
 
-      <div class="infoContainer">
-        <div class="devInfo">
-          <div class="hello">Explore</div>
-          <div class="name">My Projects</div>
-          <div class="about">Built with Precision & Passion</div>
-
-          <div class="projects-container">
-            <div class="project-card">
-              <h3>Safenity AI | ML-Driven Safety</h3>
-              <p>
-                A machine learning-powered surveillance system leveraging ResNet-50 for crime classification and YOLOv5 for real-time weapon detection.
-              </p>
-              <div class="project-buttons">
-                <a class="github" href="https://github.com/PraTham-Patill/Safenity-AI-Project" target="_blank">View on GitHub</a>
-                <a class="video" href="https://drive.google.com/file/d/1XnytryUc18zacoCqMbicX0S0yBOytD7d/view?usp=sharing" target="_blank">Watch Video</a>
-              </div>
-            </div>
-
-            <div class="project-card">
-              <h3>Cruise Up | Car Rental Application</h3>
-              <p>
-                A modern car rental system enabling customers to browse and book vehicles, while admins manage fleet and orders with control and ease.
-              </p>
-              <div class="project-buttons">
-                <a class="github" href="https://github.com/PraTham-Patill/Project_Car_Rental" target="_blank">View on GitHub</a>
-                <a class="video" href="https://drive.google.com/file/d/1YHGDweZ-UGsxeyFayN98HYjBd6zpubVk/view?usp=sharing" target="_blank">Watch Video</a>
-              </div>
-            </div>
-
-            <div class="project-card">
-              <h3>MoodTunes | Sync Your Feelings</h3>
-              <p>
-                An AI-powered music app that detects facial expressions to match your mood with curated tracks. Features shared rooms to enjoy music together.
-              </p>
-              <div class="project-buttons">
-                <a class="github" href="https://github.com/PraTham-Patill/MoodTunes" target="_blank">View on GitHub</a>
-                <a class="video" href="https://drive.google.com/file/d/1i3djABr4Pk7cgZD6X_rGO1QLb-fzavMT/view?usp=sharing" target="_blank">Watch Video</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="explore-btn">
-            <a href="https://github.com/PraTham-Patill" target="_blank">
-              <button>Explore More Projects</button>
-            </a>
-          </div>
+    <div class="projects-container">
+      <div class="project-card">
+        <h3>Safenity AI | ML-Driven Safety</h3>
+        <p>A machine learning-powered surveillance system leveraging ResNet-50 for crime classification and YOLOv5 for real-time weapon detection.</p>
+        <div class="project-buttons">
+          <a class="github" href="https://github.com/PraTham-Patill/Safenity-AI-Project" target="_blank">View on GitHub</a>
+          <a class="video" href="https://drive.google.com/file/d/1XnytryUc18zacoCqMbicX0S0yBOytD7d/view?usp=sharing" target="_blank">Watch Video</a>
         </div>
       </div>
+
+      <div class="project-card">
+        <h3>Cruise Up | Car Rental Application</h3>
+        <p>A modern car rental system enabling customers to browse and book vehicles, while admins manage fleet and orders with control and ease.</p>
+        <div class="project-buttons">
+          <a class="github" href="https://github.com/PraTham-Patill/Project_Car_Rental" target="_blank">View on GitHub</a>
+          <a class="video" href="https://drive.google.com/file/d/1YHGDweZ-UGsxeyFayN98HYjBd6zpubVk/view?usp=sharing" target="_blank">Watch Video</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <h3>MoodTunes | Sync Your Feelings</h3>
+        <p>An AI-powered music app that detects facial expressions to match your mood with curated tracks. Features shared rooms to enjoy music together.</p>
+        <div class="project-buttons">
+          <a class="github" href="https://github.com/PraTham-Patill/MoodTunes" target="_blank">View on GitHub</a>
+          <a class="video" href="https://drive.google.com/file/d/1i3djABr4Pk7cgZD6X_rGO1QLb-fzavMT/view?usp=sharing" target="_blank">Watch Video</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="explore-btn">
+      <a href="https://github.com/PraTham-Patill" target="_blank"><button>Explore More Projects</button></a>
+      <a href="/index.html"><button>Home</button></a>
     </div>
   </div>
 
@@ -290,4 +246,3 @@
   </script>
 </body>
 </html>
-
