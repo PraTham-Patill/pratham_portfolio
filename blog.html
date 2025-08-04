@@ -3,122 +3,105 @@
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Blogs by Pratham Patil</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blogs | Pratham Patil</title>
   <link rel="stylesheet" href="style.css" />
   <style>
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(to right, #f5f7fa, #c3cfe2);
       margin: 0;
       padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f5f7fa;
+      color: #333;
     }
 
     .container {
       display: flex;
     }
 
-    .sidebar {
-      min-width: 200px;
-      background: #2f3e46;
-      color: white;
-      padding: 20px;
-      height: 100vh;
+    .main {
+      flex-grow: 1;
+      padding: 2rem;
       transition: all 0.3s ease;
     }
 
-    .sidebar nav ul {
-      list-style-type: none;
-      padding: 0;
-    }
-
-    .sidebar nav ul li {
-      margin: 15px 0;
-    }
-
-    .sidebar nav ul li a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .main {
-      flex: 1;
-      padding: 20px;
-    }
-
-    .hamburger {
-      display: none;
-    }
-
     .blogContainer h1 {
-      text-align: center;
       font-size: 2.5rem;
+      margin-bottom: 2rem;
+      text-align: center;
       color: #222;
     }
 
     .blogitem {
-      background-color: white;
-      margin: 30px auto;
-      padding: 25px;
-      max-width: 800px;
-      border-radius: 12px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
-      animation: fadeIn 0.9s ease-in-out;
+      background: white;
+      padding: 2rem;
+      margin: 1rem 0;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease;
+    }
+
+    .blogitem:hover {
+      transform: translateY(-5px);
     }
 
     .blogitem h2 {
-      color: #374785;
-      font-size: 1.8rem;
-      margin-bottom: 10px;
+      font-size: 1.75rem;
+      color: #222;
+      margin-bottom: 0.8rem;
     }
 
     .blogitem p {
-      color: #444;
+      font-size: 1rem;
       line-height: 1.6;
+      color: #555;
     }
 
     .btn {
-      margin-top: 15px;
-      padding: 10px 18px;
-      background-color: #374785;
+      margin-top: 1.2rem;
+      padding: 0.6rem 1.4rem;
+      background-color: #008cff;
       color: white;
       border: none;
-      border-radius: 6px;
-      font-size: 1rem;
+      border-radius: 5px;
+      font-weight: bold;
       cursor: pointer;
       transition: background 0.3s ease;
     }
 
     .btn:hover {
-      background-color: #2b3467;
+      background-color: #005fa3;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+    .hamburger {
+      display: flex;
+      justify-content: flex-end;
+      margin: 1rem;
+    }
+
+    .hamburger img {
+      cursor: pointer;
+      margin-left: 1rem;
     }
 
     @media (max-width: 768px) {
-      .container {
-        flex-direction: column;
-      }
-
-      .sidebar {
-        height: auto;
-        width: 100%;
-        padding: 10px;
-      }
-
       .main {
-        padding: 10px;
+        padding: 1rem;
+      }
+
+      .blogitem h2 {
+        font-size: 1.4rem;
+      }
+
+      .blogitem p {
+        font-size: 0.95rem;
       }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <div class="sidebar">
+    <div class="sidebar sidebarGo">
       <nav>
         <ul>
           <li><a href="/index.html">Home</a></li>
@@ -129,10 +112,13 @@
         </ul>
       </nav>
     </div>
-
     <div class="main">
+      <div class="hamburger">
+        <img class="ham" src="Ham.png" alt="" width="23" />
+        <img class="cross" src="cross.png" alt="" width="23" />
+      </div>
       <div class="blogContainer">
-        <h1>My Tech Blogs</h1>
+        <h1>My Tech Musings</h1>
 
         <div class="blogitem">
           <h2>AI on the Streets: Making Cities Safer, Smarter</h2>
@@ -145,9 +131,9 @@
         </div>
 
         <div class="blogitem">
-          <h2>Reimagining Car Rentals for the Digital Traveler</h2>
+          <h2>Breaking the Commute Barrier: The Tech Behind Smarter Car Rentals</h2>
           <p>
-            What if booking a car was as smooth as ordering food online? I designed a responsive full-stack car rental web app where users can browse, book, and manage their rentals with ease. From real-time booking to intuitive user dashboards, this app transforms the rental experience for the modern user.
+            Imagine booking a car in seconds—custom dashboards, user roles, real-time bookings. Here’s how I engineered a full-stack car rental app that reimagines mobility, one click at a time.
           </p>
           <a href="https://github.com/PraTham-Patill/Project_Car_Rental" target="_blank">
             <button class="btn">Read More</button>
@@ -155,18 +141,20 @@
         </div>
 
         <div class="blogitem">
-          <h2>Tune Into Emotions: Creating Shared Musical Moments</h2>
+          <h2>When Music Meets Emotion: Crafting MoodTunes</h2>
           <p>
-            Music becomes magical when shared. MoodTunes lets users vibe together by creating shared rooms where friends can sync their playlists, discover new music based on emotional tone, and enjoy real-time listening together. It’s more than a music app—it’s a social soundscape.
+            Ever felt a song just gets you? MoodTunes blends music and emotion, allowing users to share feelings through curated playlists. Here's how I built a platform that listens as much as it plays.
           </p>
           <a href="https://github.com/PraTham-Patill/MoodTunes" target="_blank">
             <button class="btn">Read More</button>
           </a>
         </div>
-
+        
       </div>
     </div>
   </div>
   <script src="index.js"></script>
 </body>
 </html>
+
+       
