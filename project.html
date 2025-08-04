@@ -10,61 +10,62 @@
     .projects-container {
       display: flex;
       flex-wrap: wrap;
-      gap: 20px;
-      padding: 30px;
+      gap: 40px;
+      padding: 40px;
       justify-content: center;
     }
 
     .project-card {
       background-color: #ffffff;
-      border-radius: 15px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-      padding: 25px;
-      max-width: 320px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+      padding: 30px;
+      width: 380px;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .project-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+      transform: translateY(-8px);
+      box-shadow: 0 14px 35px rgba(0, 0, 0, 0.2);
     }
 
     .project-card h3 {
-      margin-bottom: 10px;
-      font-size: 20px;
-      color: #1e90ff;
+      font-size: 22px;
+      margin-bottom: 15px;
+      color: #0056b3;
     }
 
     .project-card p {
-      font-size: 15px;
-      color: #333;
-      margin-bottom: 15px;
+      font-size: 16px;
+      color: #444;
+      line-height: 1.6;
+      margin-bottom: 20px;
     }
 
     .project-card a {
       text-decoration: none;
       color: #fff;
-      background-color: #1e90ff;
-      padding: 8px 16px;
-      border-radius: 5px;
-      font-size: 14px;
+      background-color: #007bff;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-size: 15px;
       transition: background-color 0.2s ease;
     }
 
     .project-card a:hover {
-      background-color: #0d6efd;
+      background-color: #0056b3;
     }
 
     .explore-btn {
       text-align: center;
-      margin-top: 30px;
+      margin-top: 40px;
     }
 
     .explore-btn a button {
-      background-color: #333;
+      background-color: #222;
       color: #fff;
       border: none;
-      padding: 10px 25px;
+      padding: 12px 28px;
       font-size: 16px;
       border-radius: 8px;
       cursor: pointer;
@@ -101,27 +102,33 @@
         <div class="devInfo">
           <div class="hello">Explore</div>
           <div class="name">My Projects</div>
-          <div class="about">Crafted with Code & Creativity</div>
+          <div class="about">Built with Precision & Passion</div>
 
           <div class="projects-container">
             <!-- Safenity AI -->
             <div class="project-card">
-              <h3>Safenity AI</h3>
-              <p>ML-powered surveillance system for real-time crime detection and safety enhancement using CNN and DeepFace.</p>
+              <h3>Safenity AI | ML-Driven Safety</h3>
+              <p>
+                A machine learning-powered surveillance system leveraging ResNet-50 for crime classification and YOLOv5 for real-time weapon detection. Designed for smart city safety and anomaly detection in public spaces.
+              </p>
               <a href="https://github.com/PraTham-Patill/Safenity-AI-Project" target="_blank">View on GitHub</a>
             </div>
 
             <!-- Cruise Up -->
             <div class="project-card">
-              <h3>Cruise Up</h3>
-              <p>Full-stack car rental application with user authentication, vehicle booking, admin dashboard and responsive UI.</p>
+              <h3>Cruise Up | Car Rental Application</h3>
+              <p>
+                A full-stack car rental platform developed using the MERN stack. It streamlines car booking, integrates secure authentication, and features intuitive user dashboards and admin control panels.
+              </p>
               <a href="https://github.com/PraTham-Patill/Project_Car_Rental" target="_blank">View on GitHub</a>
             </div>
 
             <!-- MoodTunes -->
             <div class="project-card">
-              <h3>MoodTunes</h3>
-              <p>Music recommendation app that analyzes emotions from facial expressions and recommends songs that match your mood.</p>
+              <h3>MoodTunes | Sync Your Feelings</h3>
+              <p>
+                An AI-powered music recommendation engine that detects user emotions through facial analysis and curates playlists accordingly. Combines emotion recognition and music APIs to elevate user experience.
+              </p>
               <a href="https://github.com/PraTham-Patill/MoodTunes" target="_blank">View on GitHub</a>
             </div>
           </div>
