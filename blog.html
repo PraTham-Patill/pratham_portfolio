@@ -1,57 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pratham Patil -WEB Developer</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body >
-    <div class="container">
-    <div class="sidebar sidebarGo">
-       <nav>
-        <ul>
-            <li><a href="/index.html">Home</a></li>
-            <li><a href="/intro.html">My Intro</a></li>
-            <li><a href="/project.html">Projects</a></li>
-            <li><a href="/blog.html">Blog</a></li>
-            <li><a href="/contact.html">Contact Me</a></li>
-        </ul>
-    </nav>
-</div>
-    <div class="main">
-        <div class="hamburger">
-            <img class="ham" src ="Ham.png" alt="" width="23">
-            <img class="cross" src="cross.png" alt="" width="23">
-        </div>
-        <div class="blogContainer">
-            <h1>Blogs by Pratham </h1>
-            <div class="blogitem">
-                 <h2>Algorithms: The Heart of Problem Solving!</h2>
-                 <p>As we navigate the digital age, algorithms remain at the forefront of innovation, enabling us to solve increasingly complex problems.</p>
-           <button class="btn">Read More</button>
-           <hr> 
-        </div> 
-            
-            <div class="blogitem">
-                 <h2>Unraveling the Potential of Blockchain Technology</h2>
-                 <p>Blockchain technology, originally conceived for cryptocurrencies like Bitcoin, has transcended its initial application to become a transformative force across various industries. In this blog post, we'll explore the fundamentals of blockchain, its key features, and the diverse array of industries it is reshaping..</p>
-                 <button class="btn">Read More</button> 
-                 <hr> 
-            </div>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pratham Patil - Blogs</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .blogContainer {
+      padding: 30px;
+      max-width: 900px;
+      margin: auto;
+    }
 
-        
-            <div class="blogitem">
-                 <h2>The Synergy of Artificial Intelligence and Our Digital Future</h2>
-                 <p>Artificial Intelligence (AI) is revolutionizing the way we interact with technology, from virtual assistants to predictive analytics. In this blog post, we'll delve into the core concepts of AI, its applications across industries, and the ethical considerations that come with its rapid advancement.</p>
-                 <button class="btn">Read More</button> 
-                 <hr> 
-            </div>
-        </div>
+    h1 {
+      font-size: 2.8rem;
+      margin-bottom: 30px;
+      text-align: center;
+      font-family: 'Georgia', serif;
+      animation: fadeIn 1.2s ease-in-out;
+    }
+
+    .blogitem {
+      margin: 40px 0;
+      background: #f4f4f4;
+      padding: 25px;
+      border-radius: 15px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: fadeUp 1s ease-in-out;
+    }
+
+    .blogitem:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .blogitem h2 {
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+      font-family: 'Cambria', serif;
+      color: #2c3e50;
+    }
+
+    .blogitem p {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: #444;
+      font-family: 'Segoe UI', sans-serif;
+      margin-bottom: 15px;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      background-color: #2c3e50;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #1a252f;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .blogContainer {
+        padding: 20px;
+      }
+
+      .blogitem h2 {
+        font-size: 1.5rem;
+      }
+
+      .blogitem p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="sidebar sidebarGo">
+      <nav>
+        <ul>
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/intro.html">My Intro</a></li>
+          <li><a href="/project.html">Projects</a></li>
+          <li><a href="/blog.html">Blog</a></li>
+          <li><a href="/contact.html">Contact Me</a></li>
+        </ul>
+      </nav>
     </div>
-</div>
-<script src="index.js"></script>
+
+    <div class="main">
+      <div class="hamburger">
+        <img class="ham" src="Ham.png" alt="" width="23" />
+        <img class="cross" src="cross.png" alt="" width="23" />
+      </div>
+
+      <div class="blogContainer">
+        <h1>Inside My Code Lab: A Dev Journal</h1>
+
+        <div class="blogitem">
+          <h2>Surveillance 2.0: Building Safer Cities with AI</h2>
+          <p>
+            Imagine a world where technology doesn't just record crimes—it predicts and prevents them. In this blog, I walk through how I combined ResNet50 for crime classification and YOLOv5 for live weapon detection to build an intelligent safety system. Real-time. Smart. Impactful.
+          </p>
+          <a href="https://github.com/PraTham-Patill/Safenity-AI-Project" target="_blank">
+            <button class="btn">Read More</button>
+          </a>
+        </div>
+
+        <div class="blogitem">
+          <h2>Redefining Travel with Seamless Car Rentals</h2>
+          <p>
+            Booking a car shouldn’t feel like applying for a visa. I crafted a full-scale digital rental platform focused on user simplicity, dynamic pricing, and smooth admin management. This isn’t just a web app—it’s an ecosystem designed to make travel more spontaneous and efficient.
+          </p>
+          <a href="https://github.com/PraTham-Patill/Project_Car_Rental" target="_blank">
+            <button class="btn">Read More</button>
+          </a>
+        </div>
+
+        <div class="blogitem">
+          <h2>Music Meets Mood: Tuning Emotions with Sound</h2>
+          <p>
+            Ever wished your playlist could understand how you feel? MoodTunes is a music player that adapts to your mood, powered by AI. It even lets you create shared rooms to listen together with friends in sync. This blog dives deep into the idea of emotional listening reimagined.
+          </p>
+          <a href="https://github.com/PraTham-Patill/MoodTunes" target="_blank">
+            <button class="btn">Read More</button>
+          </a>
+        </div>
+
+        <div class="blogitem">
+          <h2>Scaling Shared Spaces: How Cruipse Upgraded User Communities</h2>
+          <p>
+            When your user base grows fast, so must your backend. I built a scalable multi-role user platform with custom dashboards and real-time communication tools—perfect for creators, admins, and community managers. Cruipse isn't just a platform—it's a blueprint for digital communities.
+          </p>
+          <a href="https://github.com/PraTham-Patill/CruipseUp" target="_blank">
+            <button class="btn">Read More</button>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <script src="index.js"></script>
 </body>
 </html>
-
