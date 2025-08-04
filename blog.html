@@ -2,108 +2,123 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pratham Patil - Blogs</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blogs by Pratham Patil</title>
   <link rel="stylesheet" href="style.css" />
   <style>
-    .blogContainer {
-      padding: 30px;
-      max-width: 900px;
-      margin: auto;
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #f5f7fa, #c3cfe2);
+      margin: 0;
+      padding: 0;
     }
 
-    h1 {
-      font-size: 2.8rem;
-      margin-bottom: 30px;
+    .container {
+      display: flex;
+    }
+
+    .sidebar {
+      min-width: 200px;
+      background: #2f3e46;
+      color: white;
+      padding: 20px;
+      height: 100vh;
+      transition: all 0.3s ease;
+    }
+
+    .sidebar nav ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .sidebar nav ul li {
+      margin: 15px 0;
+    }
+
+    .sidebar nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .main {
+      flex: 1;
+      padding: 20px;
+    }
+
+    .hamburger {
+      display: none;
+    }
+
+    .blogContainer h1 {
       text-align: center;
-      font-family: 'Georgia', serif;
-      animation: fadeIn 1.2s ease-in-out;
+      font-size: 2.5rem;
+      color: #222;
     }
 
     .blogitem {
-      margin: 40px 0;
-      background: #f4f4f4;
+      background-color: white;
+      margin: 30px auto;
       padding: 25px;
-      border-radius: 15px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      animation: fadeUp 1s ease-in-out;
-    }
-
-    .blogitem:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      max-width: 800px;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+      animation: fadeIn 0.9s ease-in-out;
     }
 
     .blogitem h2 {
+      color: #374785;
       font-size: 1.8rem;
-      margin-bottom: 15px;
-      font-family: 'Cambria', serif;
-      color: #2c3e50;
+      margin-bottom: 10px;
     }
 
     .blogitem p {
-      font-size: 1.05rem;
-      line-height: 1.7;
       color: #444;
-      font-family: 'Segoe UI', sans-serif;
-      margin-bottom: 15px;
+      line-height: 1.6;
     }
 
     .btn {
-      padding: 10px 20px;
-      background-color: #2c3e50;
+      margin-top: 15px;
+      padding: 10px 18px;
+      background-color: #374785;
       color: white;
       border: none;
-      border-radius: 8px;
-      cursor: pointer;
+      border-radius: 6px;
       font-size: 1rem;
-      transition: background 0.3s;
+      cursor: pointer;
+      transition: background 0.3s ease;
     }
 
     .btn:hover {
-      background-color: #1a252f;
+      background-color: #2b3467;
     }
 
     @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(-20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(40px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     @media (max-width: 768px) {
-      .blogContainer {
-        padding: 20px;
+      .container {
+        flex-direction: column;
       }
 
-      .blogitem h2 {
-        font-size: 1.5rem;
+      .sidebar {
+        height: auto;
+        width: 100%;
+        padding: 10px;
       }
 
-      .blogitem p {
-        font-size: 1rem;
+      .main {
+        padding: 10px;
       }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <div class="sidebar sidebarGo">
+    <div class="sidebar">
       <nav>
         <ul>
           <li><a href="/index.html">Home</a></li>
@@ -116,18 +131,13 @@
     </div>
 
     <div class="main">
-      <div class="hamburger">
-        <img class="ham" src="Ham.png" alt="" width="23" />
-        <img class="cross" src="cross.png" alt="" width="23" />
-      </div>
-
       <div class="blogContainer">
-        <h1>Inside My Code Lab: A Dev Journal</h1>
+        <h1>My Tech Blogs</h1>
 
         <div class="blogitem">
-          <h2>Surveillance 2.0: Building Safer Cities with AI</h2>
+          <h2>AI on the Streets: Making Cities Safer, Smarter</h2>
           <p>
-            Imagine a world where technology doesn't just record crimes—it predicts and prevents them. In this blog, I walk through how I combined ResNet50 for crime classification and YOLOv5 for live weapon detection to build an intelligent safety system. Real-time. Smart. Impactful.
+            Ever wondered how surveillance can go beyond passive watching? I built an AI-powered system using real-world crime video footage that identifies unusual activities like robbery or violence—making proactive safety a reality. From computer vision to real-time classification, this project brings AI to the frontline of public safety.
           </p>
           <a href="https://github.com/PraTham-Patill/Safenity-AI-Project" target="_blank">
             <button class="btn">Read More</button>
@@ -135,9 +145,9 @@
         </div>
 
         <div class="blogitem">
-          <h2>Redefining Travel with Seamless Car Rentals</h2>
+          <h2>Reimagining Car Rentals for the Digital Traveler</h2>
           <p>
-            Booking a car shouldn’t feel like applying for a visa. I crafted a full-scale digital rental platform focused on user simplicity, dynamic pricing, and smooth admin management. This isn’t just a web app—it’s an ecosystem designed to make travel more spontaneous and efficient.
+            What if booking a car was as smooth as ordering food online? I designed a responsive full-stack car rental web app where users can browse, book, and manage their rentals with ease. From real-time booking to intuitive user dashboards, this app transforms the rental experience for the modern user.
           </p>
           <a href="https://github.com/PraTham-Patill/Project_Car_Rental" target="_blank">
             <button class="btn">Read More</button>
@@ -145,21 +155,11 @@
         </div>
 
         <div class="blogitem">
-          <h2>Music Meets Mood: Tuning Emotions with Sound</h2>
+          <h2>Tune Into Emotions: Creating Shared Musical Moments</h2>
           <p>
-            Ever wished your playlist could understand how you feel? MoodTunes is a music player that adapts to your mood, powered by AI. It even lets you create shared rooms to listen together with friends in sync. This blog dives deep into the idea of emotional listening reimagined.
+            Music becomes magical when shared. MoodTunes lets users vibe together by creating shared rooms where friends can sync their playlists, discover new music based on emotional tone, and enjoy real-time listening together. It’s more than a music app—it’s a social soundscape.
           </p>
           <a href="https://github.com/PraTham-Patill/MoodTunes" target="_blank">
-            <button class="btn">Read More</button>
-          </a>
-        </div>
-
-        <div class="blogitem">
-          <h2>Scaling Shared Spaces: How Cruipse Upgraded User Communities</h2>
-          <p>
-            When your user base grows fast, so must your backend. I built a scalable multi-role user platform with custom dashboards and real-time communication tools—perfect for creators, admins, and community managers. Cruipse isn't just a platform—it's a blueprint for digital communities.
-          </p>
-          <a href="https://github.com/PraTham-Patill/CruipseUp" target="_blank">
             <button class="btn">Read More</button>
           </a>
         </div>
