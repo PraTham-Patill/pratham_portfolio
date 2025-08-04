@@ -195,6 +195,7 @@ body {
     background-color: #331f49;
 }
 
+/* Blog and contact form */
 .blogContainer, .contactform {
     padding: 60px 80px;
     font-family: 'Libre Baskerville', serif;
@@ -220,7 +221,6 @@ body {
     margin-bottom: 20px;
     border-radius: 8px;
     border: 1px solid #ccc;
-    width: 100%;
 }
 
 .contactform button {
@@ -238,6 +238,7 @@ body {
     background-color: #3a2654;
 }
 
+/* Animation */
 @keyframes fadeIn {
     0% { opacity: 0; transform: translateY(20px); }
     100% { opacity: 1; transform: translateY(0); }
@@ -267,15 +268,5 @@ body {
 
     .projectContainer {
         padding: 30px 20px;
-    }
-
-    .devPic img {
-        max-width: 90%;
-        height: auto;
-    }
-
-    .btn {
-        width: 100%;
-        text-align: center;
     }
 }
