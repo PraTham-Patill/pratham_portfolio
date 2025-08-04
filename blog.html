@@ -4,13 +4,14 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pratham Patil - Blog</title>
+  <title>Blogs | Pratham Patil</title>
   <link rel="stylesheet" href="style.css" />
   <style>
     body {
       margin: 0;
+      padding: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #fdfdfd;
+      background: #f5f7fa;
       color: #333;
     }
 
@@ -18,82 +19,25 @@
       display: flex;
     }
 
-    .sidebar {
-      width: 220px;
-      background-color: #111;
-      height: 100vh;
-      position: fixed;
-      top: 0;
-      left: 0;
-      transition: transform 0.3s ease-in-out;
-      z-index: 10;
-    }
-
-    .sidebarGo {
-      transform: translateX(-100%);
-    }
-
-    nav ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    nav ul li {
-      padding: 20px;
-    }
-
-    nav ul li a {
-      color: white;
-      text-decoration: none;
-      font-size: 18px;
-      display: block;
-    }
-
-    nav ul li a:hover {
-      color: #00ffe1;
-    }
-
     .main {
-      margin-left: 220px;
-      padding: 40px 20px;
       flex-grow: 1;
-      transition: margin-left 0.3s ease-in-out;
-    }
-
-    .hamburger {
-      display: none;
-      position: fixed;
-      top: 20px;
-      left: 20px;
-      z-index: 20;
-    }
-
-    .hamburger img {
-      width: 30px;
-      margin-right: 10px;
-      cursor: pointer;
-    }
-
-    .blogContainer {
-      max-width: 800px;
-      margin: auto;
-      animation: fadeIn 1s ease-in-out;
+      padding: 2rem;
+      transition: all 0.3s ease;
     }
 
     .blogContainer h1 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
       text-align: center;
-      margin-bottom: 40px;
-      font-size: 36px;
-      color: #2d2d2d;
+      color: #222;
     }
 
     .blogitem {
-      background: #fff;
-      border-radius: 10px;
-      padding: 25px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      margin-bottom: 30px;
+      background: white;
+      padding: 2rem;
+      margin: 1rem 0;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
       transition: transform 0.3s ease;
     }
 
@@ -102,66 +46,60 @@
     }
 
     .blogitem h2 {
-      margin-top: 0;
-      color: #0077cc;
+      font-size: 1.75rem;
+      color: #222;
+      margin-bottom: 0.8rem;
     }
 
     .blogitem p {
-      font-size: 16px;
+      font-size: 1rem;
       line-height: 1.6;
+      color: #555;
     }
 
     .btn {
-      padding: 10px 18px;
-      font-size: 15px;
-      background-color: #0077cc;
+      margin-top: 1.2rem;
+      padding: 0.6rem 1.4rem;
+      background-color: #008cff;
       color: white;
       border: none;
-      border-radius: 6px;
-      margin-top: 15px;
+      border-radius: 5px;
+      font-weight: bold;
       cursor: pointer;
-      transition: background-color 0.3s ease;
+      transition: background 0.3s ease;
     }
 
     .btn:hover {
       background-color: #005fa3;
     }
 
-    @media screen and (max-width: 768px) {
-      .main {
-        margin-left: 0;
-      }
-
-      .hamburger {
-        display: flex;
-      }
-
-      .sidebar {
-        position: fixed;
-        height: 100%;
-        top: 0;
-        left: 0;
-      }
+    .hamburger {
+      display: flex;
+      justify-content: flex-end;
+      margin: 1rem;
     }
 
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
+    .hamburger img {
+      cursor: pointer;
+      margin-left: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      .main {
+        padding: 1rem;
       }
-      to {
-        opacity: 1;
-        transform: translateY(0);
+
+      .blogitem h2 {
+        font-size: 1.4rem;
+      }
+
+      .blogitem p {
+        font-size: 0.95rem;
       }
     }
   </style>
 </head>
 <body>
-  <div class="hamburger">
-    <img class="ham" src="Ham.png" alt="Menu" />
-    <img class="cross" src="cross.png" alt="Close" style="display:none;" />
-  </div>
-
   <div class="container">
     <div class="sidebar sidebarGo">
       <nav>
@@ -174,15 +112,18 @@
         </ul>
       </nav>
     </div>
-
     <div class="main">
+      <div class="hamburger">
+        <img class="ham" src="Ham.png" alt="" width="23" />
+        <img class="cross" src="cross.png" alt="" width="23" />
+      </div>
       <div class="blogContainer">
-        <h1>Tech Explorations by Pratham</h1>
+        <h1>My Tech Blogs</h1>
 
         <div class="blogitem">
-          <h2>Safenity AI: AI-Powered Vigilance for Modern Cities</h2>
+          <h2>AI on the Streets: Making Cities Safer, Smarter</h2>
           <p>
-            Explore how Safenity AI transforms passive CCTV systems into intelligent crime-detecting agents. Learn how we leveraged deep learning, real-time surveillance video feeds, and computer vision to detect suspicious activity and ensure safety in crowded environments.
+            Ever wondered how surveillance can go beyond passive watching? I built an AI-powered system using real-world crime video footage that identifies unusual activities like robbery or violence—making proactive safety a reality. From computer vision to real-time classification, this project brings AI to the frontline of public safety.
           </p>
           <a href="https://github.com/PraTham-Patill/Safenity-AI-Project" target="_blank">
             <button class="btn">Read More</button>
@@ -190,34 +131,28 @@
         </div>
 
         <div class="blogitem">
-          <h2>MoodTunes: Sharing Music with Emotions</h2>
+          <h2>Breaking the Commute Barrier: The Tech Behind Smarter Car Rentals</h2>
           <p>
-            What if your playlist understood how you feel? MoodTunes is an emotion-synced music app that lets you share your current vibe with the perfect track. From face recognition to mood-based recommendations, this is where AI meets human expression.
+            Imagine booking a car in seconds—custom dashboards, user roles, real-time bookings. Here’s how I engineered a full-stack car rental app that reimagines mobility, one click at a time.
+          </p>
+          <a href="https://github.com/PraTham-Patill/Project_Car_Rental" target="_blank">
+            <button class="btn">Read More</button>
+          </a>
+        </div>
+
+        <div class="blogitem">
+          <h2>When Music Meets Emotion: Crafting MoodTunes</h2>
+          <p>
+            Ever felt a song just gets you? MoodTunes blends music and emotion, allowing users to share feelings through curated playlists. Here's how I built a platform that listens as much as it plays.
           </p>
           <a href="https://github.com/PraTham-Patill/MoodTunes" target="_blank">
             <button class="btn">Read More</button>
           </a>
         </div>
+        
       </div>
     </div>
   </div>
-
-  <script>
-    const ham = document.querySelector('.ham');
-    const cross = document.querySelector('.cross');
-    const sidebar = document.querySelector('.sidebar');
-
-    ham.addEventListener('click', () => {
-      sidebar.classList.remove('sidebarGo');
-      ham.style.display = 'none';
-      cross.style.display = 'inline';
-    });
-
-    cross.addEventListener('click', () => {
-      sidebar.classList.add('sidebarGo');
-      cross.style.display = 'none';
-      ham.style.display = 'inline';
-    });
-  </script>
+  <script src="index.js"></script>
 </body>
 </html>
