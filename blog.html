@@ -3,20 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Blogs | Pratham Patil</title>
   <link rel="stylesheet" href="style.css" />
   <style>
     body {
       margin: 0;
       padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #f5f7fa;
-      color: #333;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(145deg, #0f0f0f, #1a1a1a);
+      color: #f0f0f0;
+      min-height: 100vh;
     }
 
     .container {
       display: flex;
+      flex-direction: row;
+      gap: 2rem;
     }
 
     .main {
@@ -26,51 +29,57 @@
     }
 
     .blogContainer h1 {
-      font-size: 2.5rem;
-      margin-bottom: 2rem;
+      font-size: 2.7rem;
+      margin-bottom: 2.5rem;
       text-align: center;
-      color: #222;
+      color: #ffffff;
+      font-weight: 600;
     }
 
     .blogitem {
-      background: white;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
       padding: 2rem;
-      margin: 1rem 0;
-      border-radius: 15px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-      transition: transform 0.3s ease;
+      margin: 2rem 0;
+      border-radius: 20px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(15px);
+      transition: transform 0.3s ease, background 0.3s ease;
     }
 
     .blogitem:hover {
       transform: translateY(-5px);
+      background: rgba(255, 255, 255, 0.08);
     }
 
     .blogitem h2 {
-      font-size: 1.75rem;
-      color: #222;
-      margin-bottom: 0.8rem;
+      font-size: 1.9rem;
+      color: #00d8ff;
+      margin-bottom: 1rem;
+      font-weight: 600;
     }
 
     .blogitem p {
-      font-size: 1rem;
-      line-height: 1.6;
-      color: #555;
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: #ccc;
     }
 
     .btn {
-      margin-top: 1.2rem;
-      padding: 0.6rem 1.4rem;
-      background-color: #008cff;
-      color: white;
+      margin-top: 1.5rem;
+      padding: 0.7rem 1.6rem;
+      background: linear-gradient(135deg, #00d8ff, #0077ff);
+      color: #fff;
       border: none;
-      border-radius: 5px;
-      font-weight: bold;
+      border-radius: 8px;
+      font-weight: 600;
       cursor: pointer;
-      transition: background 0.3s ease;
+      transition: background 0.3s ease, transform 0.3s ease;
     }
 
     .btn:hover {
-      background-color: #005fa3;
+      background: linear-gradient(135deg, #00aaff, #005fd4);
+      transform: scale(1.05);
     }
 
     .hamburger {
@@ -84,13 +93,37 @@
       margin-left: 1rem;
     }
 
+    nav ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    nav ul li {
+      margin: 1rem 0;
+    }
+
+    nav ul li a {
+      color: #ccc;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #00d8ff;
+    }
+
     @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+
       .main {
-        padding: 1rem;
+        padding: 1.5rem;
       }
 
       .blogitem h2 {
-        font-size: 1.4rem;
+        font-size: 1.5rem;
       }
 
       .blogitem p {
@@ -112,13 +145,15 @@
         </ul>
       </nav>
     </div>
+
     <div class="main">
       <div class="hamburger">
-        <img class="ham" src="Ham.png" alt="" width="23" />
-        <img class="cross" src="cross.png" alt="" width="23" />
+        <img class="ham" src="Ham.png" alt="menu" width="23" />
+        <img class="cross" src="cross.png" alt="close" width="23" />
       </div>
+
       <div class="blogContainer">
-        <h1>My Tech Musings</h1>
+        <h1>My Tech Blogs</h1>
 
         <div class="blogitem">
           <h2>AI on the Streets: Making Cities Safer, Smarter</h2>
@@ -133,7 +168,7 @@
         <div class="blogitem">
           <h2>Breaking the Commute Barrier: The Tech Behind Smarter Car Rentals</h2>
           <p>
-            Imagine booking a car in seconds—custom dashboards, user roles, real-time bookings. Here’s how I engineered a full-stack car rental app that reimagines mobility, one click at a time.
+            Booking a ride shouldn't be complicated. I created a dynamic car rental experience that handles users, vehicles, and live booking logic in one fluid interface—blending backend intelligence with intuitive design to change how users interact with mobility.
           </p>
           <a href="https://github.com/PraTham-Patill/Project_Car_Rental" target="_blank">
             <button class="btn">Read More</button>
@@ -143,7 +178,7 @@
         <div class="blogitem">
           <h2>When Music Meets Emotion: Crafting MoodTunes</h2>
           <p>
-            Ever felt a song just gets you? MoodTunes blends music and emotion, allowing users to share feelings through curated playlists. Here's how I built a platform that listens as much as it plays.
+            Ever felt a song just gets you? MoodTunes blends music and emotion, allowing users to share feelings through curated playlists. From shared listening rooms to sentiment-based song sorting—this app tunes in to what you're feeling and helps you share that vibe with others.
           </p>
           <a href="https://github.com/PraTham-Patill/MoodTunes" target="_blank">
             <button class="btn">Read More</button>
@@ -156,5 +191,3 @@
   <script src="index.js"></script>
 </body>
 </html>
-
-       
