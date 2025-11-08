@@ -5,381 +5,282 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pratham Patil - Developer Portfolio</title>
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Raleway:wght@400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+  <!-- fonts (same families you used) -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Playfair+Display:wght@600&family=Dancing+Script&family=Raleway:wght@400;600&display=swap">
 
   <style>
-    :root{
-      --accent-1: #3b0148;
-      --accent-2: #6a1b9a;
-      --bg: #ffffff;
-      --muted: #555;
-      --sidebar-w: 260px;
-      --container-pad: 80px;
-    }
-
-    *{box-sizing:border-box}
-    html,body{height:100%}
+    /* Reset + base */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html,body { height: 100%; }
     body {
-      margin: 0;
-      padding: 0;
       font-family: 'Raleway', sans-serif;
-      background-color: var(--bg);
+      background: #fff;
       color: #222;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
       overflow-x: hidden;
     }
 
     /* Layout */
-    .app {
-      display: flex;
-      min-height: 100vh;
-      align-items: stretch;
-    }
+    .container { display: flex; min-height: 100vh; }
 
     /* Sidebar */
     .sidebar {
-      width: var(--sidebar-w);
-      background-color: #2e0238;
+      width: 250px;
+      background: #2e0238;
       color: #fff;
       position: fixed;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      padding-top: 40px;
-      z-index: 40;
-      transform: translateX(-100%);
-      transition: transform 0.28s ease;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.18);
+      left: 0; top: 0; bottom: 0;
+      transform: translateX(-260px);
+      transition: transform 0.25s ease;
+      z-index: 30;
+      padding-top: 60px;
     }
-
     .sidebar.open { transform: translateX(0); }
-    .sidebar nav ul { list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:6px; }
-    .sidebar nav ul li { padding: 14px 26px; }
-    .sidebar nav ul li a {
-      color: #fff;
-      text-decoration: none;
-      font-size: 18px;
-      font-weight: 500;
-      display:block;
-    }
-    .sidebar nav ul li a:hover { color: #c792ea; }
+    .sidebar nav ul { list-style: none; padding-left: 0; }
+    .sidebar nav ul li { padding: 16px 24px; }
+    .sidebar nav ul li a { color: #fff; text-decoration: none; font-size: 18px; font-weight: 500; display:block; }
 
-    /* Overlay when sidebar is open (mobile) */
-    .overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.35);
-      z-index: 35;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.28s ease;
-    }
-    .overlay.visible { opacity: 1; pointer-events: auto; }
-
-    /* Main content */
+    /* Main area */
     .main {
-      flex: 1;
-      margin-left: 0; /* We'll manage spacing with padding */
+      margin-left: 0; /* mobile default */
       width: 100%;
+      min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: var(--container-pad);
-      transition: margin-left 0.28s ease, padding 0.28s ease;
-      min-height: 100vh;
+      padding: 36px 20px;
+      transition: margin-left .25s ease;
     }
 
-    /* When wide (desktop), show sidebar permanently */
-    @media (min-width: 980px){
-      .sidebar { transform: translateX(0); position: sticky; left:0; }
-      .main { margin-left: var(--sidebar-w); padding: calc(var(--container-pad) + 20px); }
-      .overlay{ display:none; }
+    /* Desktop: keep sidebar visible and push content */
+    @media (min-width: 980px) {
+      .sidebar { transform: translateX(0); }
+      .main { margin-left: 250px; padding: 70px 60px; }
     }
 
-    /* Top bar / hamburger */
-    .topbar {
+    /* Hamburger */
+    .hamburger {
       position: fixed;
-      left: 16px;
       top: 18px;
-      z-index: 50;
-      display:flex;
-      align-items:center;
-      gap:6px;
-    }
-    .hambtn {
-      background: transparent;
-      border: 0;
-      padding: 6px;
+      left: 18px;
+      z-index: 40;
       cursor: pointer;
-      display:flex;
-      align-items:center;
-      justify-content:center;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
-    .hambtn img { width: 26px; height: 26px; display:block; }
+    .hamburger img { width: 26px; height: 26px; display:block; }
 
-    /* Hero content */
-    .hero {
-      max-width: 1200px;
-      width: 100%;
+    /* Hero wrapper */
+    .infoContainer {
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 48px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.95));
-      border-radius: 18px;
-      padding: 48px;
-      box-shadow: 0 12px 40px rgba(15,10,20,0.06);
+      width: 100%;
+      max-width: 1100px;
+      padding: 36px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.96);
+      box-shadow: 0 10px 30px rgba(12,8,18,0.06);
     }
 
-    /* Left column text */
-    .hero .left {
+    /* Left column */
+    .devInfo {
       flex: 1;
       min-width: 260px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
     }
-    .hello {
-      font-size: 26px;
-      font-family: 'Great Vibes', cursive;
-      color: var(--accent-2);
-      margin-bottom: 6px;
-    }
-    .name {
-      font-size: 48px;
-      font-family: 'Playfair Display', serif;
-      font-weight: 600;
-      color: var(--accent-1);
-      margin: 4px 0 8px;
-      text-shadow: 1px 1px 4px rgba(0,0,0,0.08);
-    }
-    .typing-line {
-      font-size: 18px;
-      color: var(--muted);
-      font-style: italic;
-      height: 26px;
-      margin-bottom: 18px;
-    }
-    .moreabout {
-      font-size: 15px;
-      color: #333;
-      line-height: 1.6;
-      max-width: 700px;
-    }
-    .buttons { margin-top: 22px; display:flex; gap:12px; flex-wrap:wrap; }
+    .hello { font-size: 26px; font-family: 'Dancing Script', cursive; color: #6a1b9a; }
+    .name { font-size: 48px; font-family: 'Playfair Display', serif; color: #3b0148; font-weight: 600; margin-top: 6px; }
+    .typing-line { font-size: 20px; color: #555; font-style: italic; height: 26px; margin-top: 10px; }
+    .moreabout { font-size: 16px; color: #333; margin-top: 20px; line-height: 1.6; max-width: 640px; }
+    .buttons { margin-top: 24px; display:flex; gap:12px; flex-wrap:wrap; }
 
     .btn {
-      background-color: var(--accent-1);
-      color: white;
+      background: #3b0148;
+      color: #fff;
       border: none;
       padding: 10px 20px;
       border-radius: 28px;
       cursor: pointer;
       font-weight: 600;
-      font-size: 15px;
-      transition: transform .18s ease, background-color .18s ease;
-      text-decoration:none;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
     }
-    .btn:hover { transform: translateY(-3px); background-color: var(--accent-2); }
+    .btn:hover { background: #6a1b9a; transform: translateY(-3px); }
 
     /* Right column image */
-    .hero .right {
-      flex: 0 0 360px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-    }
-    .hero .right img {
-      width: 100%;
-      max-width: 360px;
+    .devPic { flex: 0 0 360px; display:flex; align-items:center; justify-content:center; }
+    .devPic img {
+      width: 360px;
+      max-width: 100%;
       height: auto;
-      aspect-ratio: 5/6;
+      border-radius: 22px;
       object-fit: cover;
-      border-radius: 18px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.18);
-      transition: transform .28s ease;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.18);
+      transition: transform 0.25s ease;
     }
-    .hero .right img:hover { transform: scale(1.03); }
+    .devPic img:hover { transform: scale(1.03); }
 
-    /* Responsive adjustments */
-    @media (max-width: 980px){
-      .hero {
+    /* Centering on smaller screens: stack and center text & image */
+    @media (max-width: 900px) {
+      .infoContainer {
         flex-direction: column-reverse;
-        gap: 20px;
         padding: 28px;
+        text-align: center;
       }
-      .hero .right { width: 100%; max-width: 320px; }
-      .hero .left { text-align: center; }
-      .name { font-size: 38px; }
-      .typing-line { font-size: 16px; height: 22px; }
-      .topbar { left: 12px; top: 12px; }
+      .devInfo { align-items: center; }
+      .name { font-size: 36px; }
+      .typing-line { font-size: 18px; height: 22px; }
+      .devPic { width: 100%; max-width: 320px; }
+      .devPic img { border-radius: 18px; width: 280px; height: auto; }
     }
 
-    @media (max-width: 420px){
-      :root { --container-pad: 24px; }
-      .name { font-size: 32px; }
+    @media (max-width: 420px) {
+      .name { font-size: 30px; }
       .hello { font-size: 22px; }
       .moreabout { font-size: 14px; }
-      .hero { padding: 20px; border-radius: 14px; }
-      .hero .right img { max-width: 260px; }
+      .infoContainer { padding: 18px; gap: 18px; }
+      .devPic img { width: 240px; }
+      .hamburger { top: 12px; left: 12px; }
     }
 
-    /* Small accessibility/touch improvement: larger tap targets in sidebar */
-    .sidebar nav ul li { border-radius: 8px; }
-    .sidebar nav ul li a { padding: 8px 0; display:block; }
   </style>
 </head>
 <body>
-  <div class="app">
-    <!-- Sidebar -->
-    <aside class="sidebar" id="sidebar" aria-hidden="true">
-      <nav aria-label="Main">
+
+  <div class="container">
+    <div class="sidebar" id="sidebar">
+      <nav>
         <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#intro">My Intro</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#blog">Blog</a></li>
-          <li><a href="#contact">Contact Me</a></li>
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/intro.html">My Intro</a></li>
+          <li><a href="/project.html">Projects</a></li>
+          <li><a href="/blog.html">Blog</a></li>
+          <li><a href="/contact.html">Contact Me</a></li>
         </ul>
       </nav>
-    </aside>
-
-    <!-- overlay for mobile when sidebar open -->
-    <div class="overlay" id="overlay"></div>
-
-    <!-- Topbar with hamburger -->
-    <div class="topbar">
-      <button class="hambtn" id="hambtn" aria-label="Open menu">
-        <img src="Ham.png" alt="menu icon" id="hamImg">
-      </button>
     </div>
 
-    <!-- Main -->
-    <main class="main" id="home">
-      <section class="hero" role="region" aria-labelledby="hero-heading">
-        <div class="left">
-          <div class="hello">Hi, I am</div>
-          <div class="name" id="hero-heading">Pratham Patil</div>
-          <div class="typing-line" id="typing" aria-live="polite"></div>
+    <div class="main" id="main">
+      <div class="hamburger" id="hamb">
+        <img src="Ham.png" alt="menu" id="ham">
+        <img src="cross.png" alt="close" id="cross" style="display:none; width:26px; height:26px;">
+      </div>
 
-          <p class="moreabout">
-            I’m a B.Tech student at IIIT Guwahati specializing in Computer Science.
-            Passionate about <strong>Artificial Intelligence</strong>, <strong>Machine Learning</strong>, and <strong>Full-Stack Development</strong>,
-            I build intelligent, scalable, and user-centered solutions that merge creativity and technology.
-          </p>
+      <div class="infoContainer" role="main" aria-labelledby="hero-name">
+        <div class="devInfo">
+          <div class="hello">Hi, I am</div>
+          <div class="name" id="hero-name">Pratham Patil</div>
+          <div class="typing-line" id="typing"></div>
+
+          <div class="moreabout">
+            I’m a B.Tech student at IIIT Guwahati specializing in Computer Science.  
+            Passionate about <b>Artificial Intelligence</b>, <b>Machine Learning</b>, and <b>Full-Stack Development</b>,  
+            I love creating intelligent, scalable, and user-centered solutions that merge creativity and technology.
+          </div>
 
           <div class="buttons">
-            <a class="btn" href="PrathamP_Resume.pdf" target="_blank" rel="noopener">Download CV</a>
-            <a class="btn" href="#projects">Projects</a>
+            <a href="PrathamP_Resume.pdf" target="_blank" class="btn">Download CV</a>
+            <a href="/project.html" class="btn">Projects</a>
           </div>
         </div>
 
-        <div class="right">
-          <img src="dev.jpg" alt="Pratham Patil photo">
+        <div class="devPic">
+          <img src="dev.jpg" alt="Pratham Patil">
         </div>
-      </section>
-    </main>
+      </div>
+    </div>
   </div>
 
   <script>
-    // Sidebar toggle logic
-    (function(){
-      const sidebar = document.getElementById('sidebar');
-      const hambtn = document.getElementById('hambtn');
-      const overlay = document.getElementById('overlay');
+    // Sidebar toggle — minimal and robust (keeps original icon logic)
+    const sidebar = document.getElementById('sidebar');
+    const ham = document.getElementById('ham');
+    const cross = document.getElementById('cross');
+    const hambWrapper = document.getElementById('hamb');
 
-      function openSidebar(){
-        sidebar.classList.add('open');
-        sidebar.setAttribute('aria-hidden', 'false');
-        overlay.classList.add('visible');
-      }
-      function closeSidebar(){
-        sidebar.classList.remove('open');
-        sidebar.setAttribute('aria-hidden', 'true');
-        overlay.classList.remove('visible');
-      }
+    function openSidebar() {
+      sidebar.classList.add('open');
+      cross.style.display = 'inline';
+      ham.style.display = 'none';
+    }
+    function closeSidebar() {
+      sidebar.classList.remove('open');
+      cross.style.display = 'none';
+      ham.style.display = 'inline';
+    }
 
-      hambtn.addEventListener('click', () => {
-        if (sidebar.classList.contains('open')) closeSidebar();
-        else openSidebar();
+    hambWrapper.addEventListener('click', () => {
+      if (sidebar.classList.contains('open')) closeSidebar();
+      else openSidebar();
+    });
+
+    // Close sidebar when clicking a link on mobile
+    sidebar.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        if (window.innerWidth < 980) closeSidebar();
       });
+    });
 
-      // close when clicking overlay or a nav link (mobile)
-      overlay.addEventListener('click', closeSidebar);
-      Array.from(sidebar.querySelectorAll('a')).forEach(a => {
-        a.addEventListener('click', () => {
-          // small delay to allow the anchor to navigate
-          if (window.innerWidth < 980) closeSidebar();
-        });
-      });
-
-      // keyboard accessibility: Esc to close
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') closeSidebar();
-      });
-
-      // remove sidebar overlay effect on resize if desktop
-      window.addEventListener('resize', () => {
-        if (window.innerWidth >= 980) {
-          sidebar.classList.add('open');
-          overlay.classList.remove('visible');
-        } else {
-          sidebar.classList.remove('open');
-          sidebar.setAttribute('aria-hidden','true');
-        }
-      });
-
-      // initialize correct state
+    // Keep correct icon state on resize
+    window.addEventListener('resize', () => {
       if (window.innerWidth >= 980) {
         sidebar.classList.add('open');
-        sidebar.setAttribute('aria-hidden','false');
+        cross.style.display = 'none';
+        ham.style.display = 'inline';
       } else {
         sidebar.classList.remove('open');
-        sidebar.setAttribute('aria-hidden','true');
+        cross.style.display = 'none';
+        ham.style.display = 'inline';
+      }
+    });
+
+    // Initialize correct state
+    (function initSidebar() {
+      if (window.innerWidth >= 980) {
+        sidebar.classList.add('open');
+      } else {
+        sidebar.classList.remove('open');
       }
     })();
 
-    // Typing effect (robust bounds handling)
-    (function(){
-      const roles = ["Developer", "AI/ML Enthusiast", "Entrepreneur", "Problem Solver"];
-      let roleIndex = 0;
-      let charIndex = 0;
-      let deleting = false;
-      const el = document.getElementById('typing');
+    // Typing effect (kept simple and safe)
+    const roles = ["Developer", "AI/ML Enthusiast", "Entrepreneur", "Problem Solver"];
+    let i = 0, j = 0, deleting = false;
+    const typeEl = document.getElementById('typing');
 
-      function tick(){
-        const currentRole = roles[roleIndex];
-        if (!deleting) {
-          charIndex++;
-          el.textContent = currentRole.substring(0, charIndex);
-        } else {
-          charIndex--;
-          el.textContent = currentRole.substring(0, charIndex);
-        }
-
-        // timing
-        let delay = deleting ? 50 : 120;
-
-        // finished typing full word
-        if (!deleting && charIndex === currentRole.length) {
-          delay = 900;
-          deleting = true;
-        }
-        // finished deleting
-        else if (deleting && charIndex === 0) {
-          deleting = false;
-          roleIndex = (roleIndex + 1) % roles.length;
-          delay = 300;
-        }
-
-        setTimeout(tick, delay);
+    function typeLoop() {
+      const word = roles[i];
+      if (!deleting) {
+        j++;
+        typeEl.textContent = word.slice(0, j);
+      } else {
+        j--;
+        typeEl.textContent = word.slice(0, j);
       }
 
-      // start after small delay
-      setTimeout(tick, 500);
-    })();
+      if (!deleting && j === word.length) {
+        deleting = true;
+        setTimeout(typeLoop, 900);
+        return;
+      } else if (deleting && j === 0) {
+        deleting = false;
+        i = (i + 1) % roles.length;
+        setTimeout(typeLoop, 300);
+        return;
+      }
+
+      setTimeout(typeLoop, deleting ? 60 : 120);
+    }
+    setTimeout(typeLoop, 500);
   </script>
 </body>
 </html>
