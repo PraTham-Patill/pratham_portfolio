@@ -1,177 +1,205 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Pratham Patil - Web Developer</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
   <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      background-color: #fff;
-      margin: 0;
-      padding: 0;
-      overflow-x: hidden;
+    :root{
+      --accent:#3b0148;
+      --accent-2:#6a1b9a;
+      --bg:#ffffff;
+      --text:#222;
+      --muted:#555;
     }
-    .container {
-      display: flex;
-      min-height: 100vh;
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter, Poppins, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;}
+    body{background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
+    .site{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:36px 20px;
     }
-    .sidebar {
-      width: 250px;
-      background-color: #2e0238;
-      transition: transform 0.3s ease;
-      position: fixed;
-      height: 100%;
-      z-index: 10;
+
+    .hero{
+      width:100%;
+      max-width:1100px;
+      display:flex;
+      gap:40px;
+      align-items:center;
+      justify-content:space-between;
+      padding:28px;
     }
-    .sidebarGo {
-      transform: translateX(-260px);
+
+    .left{
+      flex:1;
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+      min-width:220px;
     }
-    .main {
-      flex: 1;
-      margin-left: 260px;
-      transition: margin-left 0.3s ease;
+
+    .greeting{font-size:20px;line-height:1;color:var(--muted);}
+    .name{
+      font-size:48px;
+      font-weight:700;
+      color:var(--accent);
+      letter-spacing:0.4px;
+      line-height:1;
+      display:flex;
+      align-items:center;
+      gap:12px;
+      flex-wrap:wrap;
     }
-    .hamburger {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 15px;
-      cursor: pointer;
+
+    .typed { color:var(--text); font-weight:700; white-space:nowrap; display:inline-block; }
+    .cursor { width:2px; height:1.2em; background:var(--accent); display:inline-block; margin-left:6px; animation:blink 1s steps(2, start) infinite; vertical-align:middle; }
+
+    @keyframes blink { 50%{opacity:0} }
+
+    .subtitle{font-size:20px;color:var(--muted);font-style:italic;}
+    .desc{font-size:15px;color:var(--text);line-height:1.6;max-width:640px;}
+    .controls{margin-top:14px;display:flex;gap:12px;flex-wrap:wrap}
+    .btn{
+      background:var(--accent);
+      color:#fff;
+      border:0;
+      padding:10px 18px;
+      border-radius:28px;
+      cursor:pointer;
+      font-weight:600;
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      transition:transform .15s ease, background .15s ease;
     }
-    .infoContainer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 80px 100px;
-      flex-wrap: wrap;
-      gap: 40px;
+    .btn:hover{transform:translateY(-3px);background:var(--accent-2)}
+
+    .right{
+      width:380px;
+      max-width:42%;
+      display:flex;
+      justify-content:center;
     }
-    .devInfo {
-      flex: 1;
-      min-width: 300px;
+    .photo{
+      width:100%;
+      max-width:380px;
+      aspect-ratio: 3 / 3.6;
+      background:#eee;
+      border-radius:24px;
+      overflow:hidden;
+      box-shadow:0 12px 40px rgba(0,0,0,0.12);
+      display:flex;
+      align-items:center;
+      justify-content:center;
     }
-    .hello {
-      font-size: 28px;
-      font-weight: 400;
+    .photo img{width:100%;height:100%;object-fit:cover;display:block}
+
+    @media (max-width:980px){
+      .hero{flex-direction:column-reverse;gap:28px;padding:22px;align-items:center}
+      .right{max-width:320px;width:60%}
+      .name{font-size:38px;text-align:center;justify-content:center}
+      .greeting{text-align:center}
+      .subtitle{text-align:center}
+      .desc{text-align:center;max-width:520px}
+      .controls{justify-content:center}
+      .left{align-items:center}
     }
-    .name {
-      font-size: 48px;
-      font-weight: 700;
-      color: #3b0148;
-      text-shadow: 1px 1px 3px #aaa;
-    }
-    .about {
-      font-size: 22px;
-      font-style: italic;
-      color: #444;
-      margin-top: 10px;
-    }
-    .moreabout {
-      font-size: 16px;
-      color: #333;
-      margin-top: 20px;
-      line-height: 1.6;
-      max-width: 550px;
-    }
-    .buttons {
-      margin-top: 30px;
-    }
-    .btn {
-      background-color: #3b0148;
-      color: white;
-      border: none;
-      padding: 12px 25px;
-      border-radius: 25px;
-      margin-right: 15px;
-      cursor: pointer;
-      font-weight: 500;
-      font-size: 15px;
-      transition: background-color 0.3s ease;
-    }
-    .btn:hover {
-      background-color: #6a1b9a;
-    }
-    .devPic {
-      flex: 0.8;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .devPic img {
-      width: 350px;
-      height: 420px;
-      object-fit: cover;
-      border-radius: 25px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.15);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .devPic img:hover {
-      transform: scale(1.05);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.25);
-    }
-    @media (max-width: 900px) {
-      .infoContainer {
-        flex-direction: column-reverse;
-        align-items: center;
-        padding: 50px 20px;
-      }
-      .devPic img {
-        width: 280px;
-        height: 340px;
-      }
-      .name {
-        font-size: 36px;
-      }
-      .main {
-        margin-left: 0;
-      }
+
+    @media (max-width:480px){
+      .hero{padding:18px}
+      .name{font-size:30px}
+      .subtitle{font-size:16px}
+      .desc{font-size:14px}
+      .photo{border-radius:18px;max-width:260px}
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="sidebar sidebarGo">
-      <nav>
-        <ul>
-          <li><a href="/index.html">Home</a></li>
-          <li><a href="/intro.html">My Intro</a></li>
-          <li><a href="/project.html">Projects</a></li>
-          <li><a href="/blog.html">Blog</a></li>
-          <li><a href="/contact.html">Contact Me</a></li>
-        </ul>
-      </nav>
-    </div>
-    <div class="main">
-      <div class="hamburger">
-        <img class="ham" src="Ham.png" alt="Menu" width="23">
-        <img class="cross" src="cross.png" alt="Close" width="23">
-      </div>
-      <div class="infoContainer">
-        <div class="devInfo">
-          <div class="hello">Hi I am</div>
-          <div class="name">Pratham Patil</div>
-          <div class="about">Developer, AI/ML Enthusiast & Entrepreneur</div>
-          <div class="moreabout">
-            I am a B.Tech student at IIIT Guwahati, specializing in Computer Science. 
-            With a deep passion for <b>Artificial Intelligence, Machine Learning, and Full-Stack Development</b>, 
-            I love building intelligent and efficient solutions that combine creativity with technology. 
-            My goal is to innovate through code, explore impactful AI applications, 
-            and make a meaningful contribution to the tech world.
-          </div>
-          <div class="buttons">
-            <a href="PrathamP_Resume.pdf" target="_blank"><button class="btn">Download CV</button></a>
-            <a href="/project.html"><button class="btn">Projects</button></a>
-          </div>
+  <div class="site">
+    <section class="hero" role="region" aria-label="Hero">
+      <div class="left">
+        <div class="greeting">Hi, I am</div>
+        <div class="name">
+          <span class="typed" id="typedName"></span>
+          <span class="cursor" aria-hidden="true"></span>
         </div>
-        <div class="devPic">
-          <img src="dev.jpg" alt="Pratham Patil">
+        <div class="subtitle" id="roleLine">Developer, AI/ML Enthusiast & Entrepreneur</div>
+        <p class="desc" id="desc">
+          I am a B.Tech student at IIIT Guwahati specializing in Computer Science. I build full-stack web apps and intelligent systems.
+          I’m passionate about <strong>Artificial Intelligence & Machine Learning</strong>, scalable software, and creating real-world impact.
+        </p>
+        <div class="controls">
+          <a class="btn" href="PrathamP_Resume.pdf" target="_blank" rel="noopener">Download CV</a>
+          <a class="btn" href="/project.html">Projects</a>
         </div>
       </div>
-    </div>
+
+      <div class="right" aria-hidden="false">
+        <figure class="photo" role="img" aria-label="Pratham Patil">
+          <img src="dev.jpg" alt="Photo of Pratham Patil">
+        </figure>
+      </div>
+    </section>
   </div>
-  <script src="index.js"></script>
+
+  <script>
+    (function(){
+      const nameEl = document.getElementById('typedName');
+      const roles = ['Pratham Patil'];
+      const loopRoles = ['Developer','AI/ML Enthusiast','Entrepreneur'];
+      const typingSpeed = 80;
+      const eraseSpeed = 40;
+      const pauseAfterName = 800;
+      const pauseBetweenRoles = 900;
+      let idx = 0;
+
+      function typeText(el, text, speed){
+        return new Promise(resolve=>{
+          el.textContent = '';
+          let i=0;
+          const t = setInterval(()=>{
+            el.textContent += text.charAt(i);
+            i++;
+            if(i>=text.length){ clearInterval(t); resolve(); }
+          }, speed);
+        });
+      }
+
+      function eraseText(el, speed){
+        return new Promise(resolve=>{
+          const t = setInterval(()=>{
+            const cur = el.textContent;
+            if(!cur.length){ clearInterval(t); resolve(); return; }
+            el.textContent = cur.slice(0, -1);
+          }, speed);
+        });
+      }
+
+      async function run(){
+        await typeText(nameEl, roles[0], typingSpeed);
+        await new Promise(r=>setTimeout(r, pauseAfterName));
+        while(true){
+          for(let j=0;j<loopRoles.length;j++){
+            const line = loopRoles[j];
+            const roleLine = document.getElementById('roleLine');
+            await typeText(nameEl, roles[0] + ' — ' + line, typingSpeed);
+            await new Promise(r=>setTimeout(r,pauseBetweenRoles+400));
+            await eraseText(nameEl, eraseSpeed);
+            await new Promise(r=>setTimeout(r,200));
+            await typeText(nameEl, roles[0], typingSpeed);
+            await new Promise(r=>setTimeout(r,500));
+          }
+        }
+      }
+
+      run();
+    })();
+  </script>
 </body>
 </html>
