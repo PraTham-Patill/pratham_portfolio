@@ -1,294 +1,291 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pratham Patil - Developer Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Pratham Patil - Portfolio</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@600;700&family=Raleway:wght@300;500;700&display=swap" rel="stylesheet">
+
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Raleway:wght@400;600&family=Great+Vibes&display=swap');
-
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Raleway', sans-serif;
-      background-color: #fff;
-      color: #222;
-      overflow-x: hidden;
+    :root{
+      --accent: #3b0148;
+      --accent-2:#6a1b9a;
+      --muted:#666;
+      --bg:#ffffff;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:'Raleway',system-ui,Arial;
+      background:var(--bg);
+      color:#222;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
     }
 
-    .container {
-      display: flex;
-      min-height: 100vh;
-    }
-
+    /* --- layout --- */
     .sidebar {
-      width: 250px;
-      background-color: #2e0238;
-      color: #fff;
-      position: fixed;
-      height: 100%;
-      transition: transform 0.3s ease;
-      z-index: 10;
+      position:fixed;
+      left:0;
+      top:0;
+      bottom:0;
+      width:240px;
+      background:var(--accent);
+      color:#fff;
+      padding-top:28px;
+      z-index:30;
+      transition:transform .28s ease;
     }
-
-    .sidebar nav ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      margin-top: 60px;
-    }
-
-    .sidebar nav ul li {
-      padding: 18px 30px;
-    }
-
-    .sidebar nav ul li a {
-      color: white;
-      text-decoration: none;
-      font-size: 18px;
-      font-weight: 500;
-      transition: color 0.2s ease;
-    }
-
-    .sidebar nav ul li a:hover {
-      color: #c792ea;
-    }
-
-    .sidebarGo {
-      transform: translateX(-260px);
-    }
+    .sidebar.hidden { transform:translateX(-260px); }
+    .sidebar nav ul{ list-style:none; padding:0; margin:40px 0 0 0; }
+    .sidebar nav li{ padding:18px 34px; }
+    .sidebar nav a{ color:#fff; text-decoration:none; font-size:18px; display:block; }
 
     .main {
-      flex: 1;
-      margin-left: 260px;
-      transition: margin-left 0.3s ease;
+      margin-left:240px;
+      min-height:100vh;
+      display:flex;
+      align-items:center;      /* vertical center */
+      justify-content:center;  /* horizontal center in remaining area */
+      padding:40px;
+      transition:margin-left .28s ease;
     }
 
+    /* hamburger */
     .hamburger {
-      position: fixed;
-      top: 20px;
-      left: 20px;
-      cursor: pointer;
-      z-index: 20;
+      position:fixed;
+      left:12px;
+      top:12px;
+      z-index:40;
+      background:transparent;
+      border:0;
+      cursor:pointer;
+      display:flex;
+      align-items:center;
+      gap:8px;
+    }
+    .hamburger img{ width:28px; height:auto; display:block }
+
+    /* hero box centered */
+    .hero {
+      width:100%;
+      max-width:1120px;
+      background:transparent;
+      display:flex;
+      gap:64px;
+      align-items:center;
+      justify-content:space-between;
+      flex-wrap:wrap;
     }
 
-    .hamburger img {
-      width: 25px;
-      margin: 8px;
+    .left {
+      flex:1 1 460px;
+      min-width:280px;
     }
 
-    .infoContainer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      padding: 100px 80px;
-      gap: 60px;
+    .hello{
+      font-family:'Great Vibes', cursive;
+      color:var(--accent);
+      font-size:32px;
+      margin:0 0 10px 0;
+      line-height:1;
     }
 
-    .devInfo {
-      flex: 1;
-      min-width: 300px;
+    .name{
+      font-family:'Playfair Display', serif;
+      font-size:64px;
+      font-weight:700;
+      color:var(--accent);
+      margin:0;
+      line-height:1;
+      letter-spacing:0.2px;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.12);
     }
 
-    .hello {
-      font-size: 28px;
-      font-family: 'Great Vibes', cursive;
-      color: #6a1b9a;
+    .typing-line{
+      font-size:20px;
+      color:var(--muted);
+      margin-top:8px;
+      height:28px; /* keeps space while typing */
+      font-style:italic;
     }
 
-    .name {
-      font-size: 52px;
-      font-family: 'Playfair Display', serif;
-      font-weight: 600;
-      color: #3b0148;
-      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.15);
-      margin-top: 10px;
+    .moreabout{
+      margin-top:22px;
+      font-size:16px;
+      color:#333;
+      line-height:1.7;
+      max-width:620px;
     }
 
-    .typing-line {
-      font-size: 20px;
-      color: #555;
-      font-style: italic;
-      height: 26px;
-      margin-top: 10px;
+    .actions{
+      margin-top:28px;
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
     }
 
-    .moreabout {
-      font-size: 16px;
-      color: #333;
-      margin-top: 25px;
-      line-height: 1.7;
-      max-width: 580px;
+    .btn{
+      background:var(--accent);
+      color:#fff;
+      border:0;
+      padding:12px 24px;
+      border-radius:28px;
+      cursor:pointer;
+      font-weight:600;
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .btn:hover{ background:var(--accent-2) }
+
+    .right{
+      flex:0 0 420px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      min-width:260px;
     }
 
-    .buttons {
-      margin-top: 35px;
+    .portrait{
+      width:420px;
+      height:420px;
+      border-radius:22px;
+      overflow:hidden;
+      box-shadow:0 18px 50px rgba(0,0,0,0.18);
+      display:block;
+    }
+    .portrait img{ width:100%; height:100%; object-fit:cover; display:block; }
+
+    /* small screens: stack & center everything, hide sidebar */
+    @media (max-width: 920px){
+      .sidebar{ transform:translateX(-260px); } /* hidden by default on mobile */
+      .main{ margin-left:0; padding:28px; }
+      .hero{ gap:30px; align-items:center; justify-content:center; }
+      .right{ order:-1; width:100%; display:flex; justify-content:center; }
+      .portrait{ width:300px; height:300px; }
+      .name{ font-size:44px; text-align:center; }
+      .hello{ font-size:28px; text-align:center; }
+      .typing-line{ text-align:center; }
+      .left { text-align:center; }
+      .actions{ justify-content:center; }
     }
 
-    .btn {
-      background-color: #3b0148;
-      color: white;
-      border: none;
-      padding: 12px 26px;
-      border-radius: 30px;
-      margin-right: 15px;
-      cursor: pointer;
-      font-weight: 500;
-      font-size: 15px;
-      transition: background-color 0.3s ease, transform 0.2s ease;
-    }
-
-    .btn:hover {
-      background-color: #6a1b9a;
-      transform: translateY(-3px);
-    }
-
-    .devPic {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .devPic img {
-      width: 350px;
-      height: 420px;
-      object-fit: cover;
-      border-radius: 25px;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
-      transition: transform 0.3s ease;
-    }
-
-    .devPic img:hover {
-      transform: scale(1.05);
-    }
-
-    @media (max-width: 900px) {
-      .infoContainer {
-        flex-direction: column-reverse;
-        text-align: center;
-        padding: 100px 30px;
-      }
-
-      .main {
-        margin-left: 0;
-      }
-
-      .name {
-        font-size: 40px;
-      }
-
-      .typing-line {
-        font-size: 18px;
-      }
-
-      .devPic img {
-        width: 280px;
-        height: 340px;
-      }
-
-      .buttons {
-        display: flex;
-        justify-content: center;
-      }
+    @media (max-width:480px){
+      .portrait{ width:240px; height:240px; border-radius:18px; box-shadow: 0 12px 30px rgba(0,0,0,0.12); }
+      .name{ font-size:34px; }
+      .hello{ font-size:26px; }
+      .typing-line{ font-size:16px; height:22px; }
+      .moreabout{ font-size:15px; }
     }
   </style>
 </head>
 <body>
 
-  <div class="container">
-    <div class="sidebar sidebarGo" id="sidebar">
-      <nav>
-        <ul>
-          <li><a href="/index.html">Home</a></li>
-          <li><a href="/intro.html">My Intro</a></li>
-          <li><a href="/project.html">Projects</a></li>
-          <li><a href="/blog.html">Blog</a></li>
-          <li><a href="/contact.html">Contact Me</a></li>
-        </ul>
-      </nav>
-    </div>
+  <button class="hamburger" id="hambBtn" aria-label="Toggle menu">
+    <img id="hamI" src="Ham.png" alt="open menu">
+    <img id="crossI" src="cross.png" alt="close menu" style="display:none">
+  </button>
 
-    <div class="main">
-      <div class="hamburger">
-        <img class="ham" src="Ham.png" alt="menu" id="ham">
-        <img class="cross" src="cross.png" alt="close" id="cross" style="display:none;">
+  <aside class="sidebar hidden" id="sidebar" aria-hidden="true">
+    <nav>
+      <ul>
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="/intro.html">My Intro</a></li>
+        <li><a href="/project.html">Projects</a></li>
+        <li><a href="/blog.html">Blog</a></li>
+        <li><a href="/contact.html">Contact Me</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <main class="main" id="main">
+    <section class="hero" aria-label="Hero">
+      <div class="left">
+        <h2 class="hello">Hi, I am</h2>
+        <h1 class="name">Pratham Patil</h1>
+        <div class="typing-line" id="typing"></div>
+
+        <p class="moreabout">
+          I’m a B.Tech student at IIIT Guwahati specializing in Computer Science.
+          Passionate about <strong>Artificial Intelligence</strong>, <strong>Machine Learning</strong>, and <strong>Full-Stack Development</strong>,
+          I build user-centered, scalable systems and intelligent applications that solve real problems.
+        </p>
+
+        <div class="actions">
+          <a class="btn" href="PrathamP_Resume.pdf" target="_blank" rel="noopener">Download CV</a>
+          <a class="btn" href="/project.html">Projects</a>
+        </div>
       </div>
 
-      <div class="infoContainer">
-        <div class="devInfo">
-          <div class="hello">Hi, I am</div>
-          <div class="name">Pratham Patil</div>
-          <div class="typing-line" id="typing"></div>
-
-          <div class="moreabout">
-            I’m a B.Tech student at IIIT Guwahati specializing in Computer Science.  
-            Passionate about <b>Artificial Intelligence</b>, <b>Machine Learning</b>, and <b>Full-Stack Development</b>,  
-            I love creating intelligent, scalable, and user-centered solutions that merge creativity and technology.
-          </div>
-
-          <div class="buttons">
-            <a href="PrathamP_Resume.pdf" target="_blank"><button class="btn">Download CV</button></a>
-            <a href="/project.html"><button class="btn">Projects</button></a>
-          </div>
-        </div>
-
-        <div class="devPic">
+      <div class="right">
+        <figure class="portrait" role="img" aria-label="Photo of Pratham Patil">
           <img src="dev.jpg" alt="Pratham Patil">
-        </div>
+        </figure>
       </div>
-    </div>
-  </div>
+    </section>
+  </main>
 
   <script>
+    // sidebar toggle
     const sidebar = document.getElementById('sidebar');
-    const ham = document.getElementById('ham');
-    const cross = document.getElementById('cross');
+    const hambBtn = document.getElementById('hambBtn');
+    const hamI = document.getElementById('hamI');
+    const crossI = document.getElementById('crossI');
 
-    ham.onclick = function() {
-      sidebar.classList.toggle('sidebarGo');
-      if (sidebar.classList.contains('sidebarGo')) {
-        cross.style.display = 'none';
-        ham.style.display = 'inline';
-      } else {
-        cross.style.display = 'inline';
-        ham.style.display = 'none';
-      }
-    };
-
-    cross.onclick = function() {
-      sidebar.classList.add('sidebarGo');
-      cross.style.display = 'none';
-      ham.style.display = 'inline';
-    };
-
-    const roles = ["Developer", "AI/ML Enthusiast", "Entrepreneur", "Problem Solver"];
-    let i = 0, j = 0, current = "", deleting = false;
-
-    function type() {
-      const el = document.getElementById("typing");
-      if (!deleting && j <= roles[i].length) {
-        current = roles[i].substring(0, j++);
-      } else if (deleting && j >= 0) {
-        current = roles[i].substring(0, j--);
-      }
-
-      el.textContent = current;
-
-      if (j === roles[i].length + 1) {
-        deleting = true;
-        setTimeout(type, 1000);
-      } else if (deleting && j === 0) {
-        deleting = false;
-        i = (i + 1) % roles.length;
-        setTimeout(type, 300);
-      } else {
-        setTimeout(type, deleting ? 50 : 100);
-      }
+    function openSidebar(){
+      sidebar.classList.remove('hidden');
+      sidebar.setAttribute('aria-hidden','false');
+      hamI.style.display = 'none';
+      crossI.style.display = 'inline';
     }
-    type();
+    function closeSidebar(){
+      sidebar.classList.add('hidden');
+      sidebar.setAttribute('aria-hidden','true');
+      hamI.style.display = 'inline';
+      crossI.style.display = 'none';
+    }
+
+    hambBtn.addEventListener('click', ()=>{
+      if(sidebar.classList.contains('hidden')) openSidebar(); else closeSidebar();
+    });
+
+    // clicking a link (mobile) closes sidebar
+    sidebar.querySelectorAll('a').forEach(a => a.addEventListener('click', closeSidebar));
+
+    // typing effect (under name, not overlapping)
+    const roles = ["Developer", "AI/ML Enthusiast", "Entrepreneur", "Problem Solver"];
+    const el = document.getElementById('typing');
+    let r = 0, c = 0, deleting = false;
+
+    function tick(){
+      const text = roles[r];
+      if(!deleting){
+        c++;
+        el.textContent = text.slice(0, c);
+        if(c === text.length){
+          deleting = true;
+          setTimeout(tick, 900);
+          return;
+        }
+      } else {
+        c--;
+        el.textContent = text.slice(0, c);
+        if(c === 0){
+          deleting = false;
+          r = (r+1) % roles.length;
+          setTimeout(tick, 300);
+          return;
+        }
+      }
+      setTimeout(tick, deleting ? 40 : 90);
+    }
+    // small initial delay to feel natural
+    setTimeout(tick, 500);
   </script>
+
 </body>
 </html>
