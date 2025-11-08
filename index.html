@@ -6,26 +6,20 @@
   <title>Pratham Patil - Portfolio</title>
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@600;700&family=Raleway:wght@300;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@600;700&family=Raleway:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
-    :root{
+    :root {
       --accent: #3b0148;
-      --accent-2:#6a1b9a;
-      --muted:#666;
-      --bg:#ffffff;
+      --accent-2: #6a1b9a;
+      --muted: #6b6b6b;
+      --bg: #ffffff;
+      --maxWidth: 1120px;
     }
     *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family:'Raleway',system-ui,Arial;
-      background:var(--bg);
-      color:#222;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-    }
+    html,body{height:100%;margin:0;font-family:'Raleway',system-ui,Arial;background:var(--bg);color:#222;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 
-    /* --- layout --- */
+    /* sidebar */
     .sidebar {
       position:fixed;
       left:0;
@@ -36,20 +30,23 @@
       color:#fff;
       padding-top:28px;
       z-index:30;
+      transform: translateX(0);
       transition:transform .28s ease;
     }
-    .sidebar.hidden { transform:translateX(-260px); }
+    .sidebar.hidden { transform: translateX(-260px); }
     .sidebar nav ul{ list-style:none; padding:0; margin:40px 0 0 0; }
     .sidebar nav li{ padding:18px 34px; }
     .sidebar nav a{ color:#fff; text-decoration:none; font-size:18px; display:block; }
+    .sidebar nav a:hover{ color:#e6b6ff }
 
+    /* main area */
     .main {
       margin-left:240px;
       min-height:100vh;
       display:flex;
-      align-items:center;      /* vertical center */
-      justify-content:center;  /* horizontal center in remaining area */
-      padding:40px;
+      align-items:center;
+      justify-content:center;
+      padding:20px;
       transition:margin-left .28s ease;
     }
 
@@ -58,80 +55,87 @@
       position:fixed;
       left:12px;
       top:12px;
-      z-index:40;
+      z-index:60;
       background:transparent;
       border:0;
       cursor:pointer;
       display:flex;
       align-items:center;
       gap:8px;
+      padding:6px;
     }
     .hamburger img{ width:28px; height:auto; display:block }
 
-    /* hero box centered */
+    /* overlay for mobile when sidebar open */
+    .overlay {
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,0.35);
+      z-index:50;
+      display:none;
+    }
+    .overlay.show{ display:block; }
+
+    /* hero (centered content) */
     .hero {
       width:100%;
-      max-width:1120px;
-      background:transparent;
+      max-width:var(--maxWidth);
       display:flex;
-      gap:64px;
+      gap:56px;
       align-items:center;
       justify-content:space-between;
       flex-wrap:wrap;
+      padding:40px 20px;
     }
 
-    .left {
-      flex:1 1 460px;
-      min-width:280px;
-    }
+    .left { flex:1 1 460px; min-width:260px; }
+    .right { flex:0 0 420px; display:flex; align-items:center; justify-content:center; min-width:260px; }
 
-    .hello{
+    .hello {
       font-family:'Great Vibes', cursive;
       color:var(--accent);
-      font-size:32px;
-      margin:0 0 10px 0;
+      font-size:34px;
+      margin:0 0 6px 0;
       line-height:1;
     }
 
-    .name{
+    .name {
       font-family:'Playfair Display', serif;
       font-size:64px;
       font-weight:700;
       color:var(--accent);
       margin:0;
       line-height:1;
-      letter-spacing:0.2px;
-      text-shadow: 0 2px 6px rgba(0,0,0,0.12);
+      text-shadow:0 3px 10px rgba(0,0,0,0.12);
     }
 
-    .typing-line{
+    .typing-line {
       font-size:20px;
       color:var(--muted);
       margin-top:8px;
-      height:28px; /* keeps space while typing */
+      height:28px; /* preserve space while typing */
       font-style:italic;
     }
 
-    .moreabout{
+    .moreabout {
       margin-top:22px;
       font-size:16px;
       color:#333;
-      line-height:1.7;
-      max-width:620px;
+      line-height:1.72;
+      max-width:660px;
     }
 
-    .actions{
+    .actions {
       margin-top:28px;
       display:flex;
       gap:14px;
       flex-wrap:wrap;
     }
-
-    .btn{
+    .btn {
       background:var(--accent);
       color:#fff;
       border:0;
-      padding:12px 24px;
+      padding:12px 26px;
       border-radius:28px;
       cursor:pointer;
       font-weight:600;
@@ -142,55 +146,55 @@
     }
     .btn:hover{ background:var(--accent-2) }
 
-    .right{
-      flex:0 0 420px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      min-width:260px;
-    }
-
-    .portrait{
+    .portrait {
       width:420px;
       height:420px;
       border-radius:22px;
       overflow:hidden;
-      box-shadow:0 18px 50px rgba(0,0,0,0.18);
+      box-shadow:0 20px 60px rgba(0,0,0,0.18);
       display:block;
+      transition:transform .28s ease, box-shadow .28s ease;
     }
-    .portrait img{ width:100%; height:100%; object-fit:cover; display:block; }
+    .portrait img{ width:100%; height:100%; object-fit:cover; display:block }
+    .portrait:hover{ transform:translateY(-6px); box-shadow:0 26px 70px rgba(0,0,0,0.22) }
 
-    /* small screens: stack & center everything, hide sidebar */
-    @media (max-width: 920px){
-      .sidebar{ transform:translateX(-260px); } /* hidden by default on mobile */
-      .main{ margin-left:0; padding:28px; }
-      .hero{ gap:30px; align-items:center; justify-content:center; }
+    /* small screens: sidebar overlay, stacked centered content */
+    @media (max-width: 920px) {
+      .sidebar{ transform: translateX(-260px); } /* hidden by default on mobile */
+      .main{ margin-left:0; padding:18px; }
+      .hero{ gap:28px; align-items:center; justify-content:center; }
       .right{ order:-1; width:100%; display:flex; justify-content:center; }
       .portrait{ width:300px; height:300px; }
       .name{ font-size:44px; text-align:center; }
-      .hello{ font-size:28px; text-align:center; }
+      .hello{ font-size:30px; text-align:center; }
       .typing-line{ text-align:center; }
-      .left { text-align:center; }
+      .left{ text-align:center; }
       .actions{ justify-content:center; }
     }
 
-    @media (max-width:480px){
-      .portrait{ width:240px; height:240px; border-radius:18px; box-shadow: 0 12px 30px rgba(0,0,0,0.12); }
-      .name{ font-size:34px; }
-      .hello{ font-size:26px; }
-      .typing-line{ font-size:16px; height:22px; }
-      .moreabout{ font-size:15px; }
+    @media (max-width:480px) {
+      .portrait{ width:240px; height:240px; border-radius:18px; box-shadow: 0 12px 30px rgba(0,0,0,0.12) }
+      .name{ font-size:34px }
+      .hello{ font-size:26px }
+      .typing-line{ font-size:16px; height:22px }
+      .moreabout{ font-size:15px }
+      .hamburger { left:10px; top:10px }
     }
+
+    /* accessibility: focus outlines */
+    a:focus, button:focus { outline: 3px solid rgba(59,1,72,0.18); outline-offset:3px; }
   </style>
 </head>
 <body>
 
-  <button class="hamburger" id="hambBtn" aria-label="Toggle menu">
+  <!-- Hamburger button -->
+  <button class="hamburger" id="hambBtn" aria-label="Toggle menu" aria-expanded="false">
     <img id="hamI" src="Ham.png" alt="open menu">
     <img id="crossI" src="cross.png" alt="close menu" style="display:none">
   </button>
 
-  <aside class="sidebar hidden" id="sidebar" aria-hidden="true">
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar" aria-hidden="true">
     <nav>
       <ul>
         <li><a href="/index.html">Home</a></li>
@@ -202,17 +206,22 @@
     </nav>
   </aside>
 
+  <!-- Overlay for mobile when sidebar open -->
+  <div class="overlay" id="overlay" aria-hidden="true"></div>
+
+  <!-- Main centered content -->
   <main class="main" id="main">
     <section class="hero" aria-label="Hero">
       <div class="left">
         <h2 class="hello">Hi, I am</h2>
         <h1 class="name">Pratham Patil</h1>
-        <div class="typing-line" id="typing"></div>
+        <div class="typing-line" id="typing" aria-live="polite"></div>
 
         <p class="moreabout">
-          I’m a B.Tech student at IIIT Guwahati specializing in Computer Science.
-          Passionate about <strong>Artificial Intelligence</strong>, <strong>Machine Learning</strong>, and <strong>Full-Stack Development</strong>,
-          I build user-centered, scalable systems and intelligent applications that solve real problems.
+          I’m a B.Tech student at IIIT Guwahati specializing in Computer Science. Passionate about
+          <strong>Artificial Intelligence</strong>, <strong>Machine Learning</strong>, and
+          <strong>Full-Stack Development</strong>, I build user-centered, scalable systems and intelligent
+          applications that solve real problems.
         </p>
 
         <div class="actions">
@@ -230,42 +239,87 @@
   </main>
 
   <script>
-    // sidebar toggle
+    // Elements
     const sidebar = document.getElementById('sidebar');
     const hambBtn = document.getElementById('hambBtn');
     const hamI = document.getElementById('hamI');
     const crossI = document.getElementById('crossI');
+    const overlay = document.getElementById('overlay');
 
+    // Helper to detect mobile width
+    function isMobile() { return window.matchMedia('(max-width:920px)').matches; }
+
+    // Open sidebar (overlay behavior on mobile)
     function openSidebar(){
       sidebar.classList.remove('hidden');
+      sidebar.style.transform = 'translateX(0)';
       sidebar.setAttribute('aria-hidden','false');
+      hambBtn.setAttribute('aria-expanded','true');
       hamI.style.display = 'none';
       crossI.style.display = 'inline';
+      if(isMobile()){
+        overlay.classList.add('show');
+        overlay.setAttribute('aria-hidden','false');
+      }
     }
+
+    // Close sidebar
     function closeSidebar(){
-      sidebar.classList.add('hidden');
+      if(isMobile()){
+        sidebar.style.transform = 'translateX(-260px)';
+      } else {
+        sidebar.style.transform = 'translateX(0)'; // desktop keeps it visible by default
+      }
       sidebar.setAttribute('aria-hidden','true');
+      hambBtn.setAttribute('aria-expanded','false');
       hamI.style.display = 'inline';
       crossI.style.display = 'none';
+      overlay.classList.remove('show');
+      overlay.setAttribute('aria-hidden','true');
     }
 
-    hambBtn.addEventListener('click', ()=>{
-      if(sidebar.classList.contains('hidden')) openSidebar(); else closeSidebar();
+    // Toggle sidebar (toggle button)
+    hambBtn.addEventListener('click', () => {
+      const expanded = hambBtn.getAttribute('aria-expanded') === 'true';
+      if (expanded) closeSidebar(); else openSidebar();
     });
 
-    // clicking a link (mobile) closes sidebar
-    sidebar.querySelectorAll('a').forEach(a => a.addEventListener('click', closeSidebar));
+    // Clicking overlay closes sidebar
+    overlay.addEventListener('click', closeSidebar);
 
-    // typing effect (under name, not overlapping)
+    // When a sidebar link is clicked on mobile, close the sidebar
+    sidebar.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { if(isMobile()) closeSidebar(); }));
+
+    // Ensure initial state: desktop shows sidebar, mobile hides
+    function initSidebarState(){
+      if(isMobile()){
+        sidebar.style.transform = 'translateX(-260px)';
+        sidebar.setAttribute('aria-hidden','true');
+        hambBtn.setAttribute('aria-expanded','false');
+        hamI.style.display = 'inline';
+        crossI.style.display = 'none';
+        overlay.classList.remove('show');
+      } else {
+        sidebar.style.transform = 'translateX(0)';
+        sidebar.setAttribute('aria-hidden','false');
+        hambBtn.setAttribute('aria-expanded','false');
+        hamI.style.display = 'none'; // hide hamburger on wider screens if you prefer
+        crossI.style.display = 'none';
+      }
+    }
+    window.addEventListener('resize', initSidebarState);
+    initSidebarState();
+
+    // Typing effect (under name, no overlap)
     const roles = ["Developer", "AI/ML Enthusiast", "Entrepreneur", "Problem Solver"];
-    const el = document.getElementById('typing');
+    const typingEl = document.getElementById('typing');
     let r = 0, c = 0, deleting = false;
 
     function tick(){
       const text = roles[r];
       if(!deleting){
         c++;
-        el.textContent = text.slice(0, c);
+        typingEl.textContent = text.slice(0, c);
         if(c === text.length){
           deleting = true;
           setTimeout(tick, 900);
@@ -273,19 +327,18 @@
         }
       } else {
         c--;
-        el.textContent = text.slice(0, c);
+        typingEl.textContent = text.slice(0, c);
         if(c === 0){
           deleting = false;
-          r = (r+1) % roles.length;
+          r = (r + 1) % roles.length;
           setTimeout(tick, 300);
           return;
         }
       }
       setTimeout(tick, deleting ? 40 : 90);
     }
-    // small initial delay to feel natural
+    // start after a short delay for polish
     setTimeout(tick, 500);
   </script>
-
 </body>
 </html>
